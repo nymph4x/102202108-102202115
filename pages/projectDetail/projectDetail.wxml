@@ -1,0 +1,50 @@
+<!--pages/projectDetail/projectDEtail.wxml-->
+<view class="container">  
+  <view class="project-header">  
+    <image class="project-image" src="{{projectImage}}" mode="aspectFill"></image>  
+    <text class="project-name">{{projectName}}</text>  
+  </view>  
+  <text class="project-intro">{{projectIntro}}</text>  
+
+  <view class="members-teachers">  
+    <view class="members-section">  
+      <view class="members-box">  
+        <text class="members-text">项目成员</text>  
+      </view>  
+      <view class="members-list">
+        <view class="leader-info">  
+          <image class="avatar" src="{{leaderAvatar}}" mode="aspectFill"></image>  
+          <text class="leader-name">{{leader}}</text>  
+        </view>    
+        <view class="member-info" wx:for="{{projectMembers}}" wx:key="index">  
+          <image class="avatar" src="{{item.avatar}}" mode="aspectFill"></image>  
+          <text>{{item.name}}</text>  
+        </view>  
+      </view>  
+    </view>  
+
+    <view class="spacing"></view> <!-- 添加间隔 -->
+
+    <view class="teachers-section">  
+      <view class="teachers-box">  
+        <text class="teachers-text">指导老师</text>  
+      </view>  
+      <view class="teacher-info">  
+        <image class="avatar" src="{{teacherAvatar}}" mode="aspectFill"></image>  
+        <text>{{teacher}}</text>  
+      </view>  
+    </view>  
+  </view>  
+
+  <view class="progress-bar">  
+    <text>项目进度: {{progress}}%</text>  
+    <view class="bar">  
+      <view class="filled" style="width: {{progress}}%;"></view>  
+    </view>  
+  </view>  
+
+  <view class="status">  
+    <text>项目状态: <input value="{{projectStatus}}" bindinput="updateStatus" /></text>  
+  </view>  
+  <button class="apply-button" bindtap="applyToProject">申请加入项目</button>  
+</view>

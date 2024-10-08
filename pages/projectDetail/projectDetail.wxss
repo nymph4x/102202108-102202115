@@ -1,0 +1,106 @@
+/* pages/projectDetail/projectDEtail.wxss */
+.container {
+  padding: 20px;
+}
+
+.project-header {
+  display: flex;
+  align-items: center;
+}
+
+.project-image {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  margin-right: 20px;
+}
+
+.project-name {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.project-intro {
+  margin-top: 10px;
+  font-size: 16px;
+}
+
+.members-teachers {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 15px;
+}
+
+.members-section, .teachers-section {
+  flex: 1;
+}
+
+.members-box, .teachers-box {
+  background-color: rgb(89, 151, 233); /* 蓝色背景 */
+  border-radius: 10px;
+  padding: 10px;
+  margin-bottom: 10px;
+  margin-left: 20px;
+}
+
+.members-text, .teachers-text {
+  color: white;
+  font-weight: bold;
+}
+
+.members-list, .teacher-info {
+  margin-top: 5px;
+}
+
+.leader-info {
+  display: flex;
+  align-items: center;
+  margin-top: 5px;
+  margin-bottom: 5px; /* 增加间隔 */
+}
+
+.member-info {
+  display: flex;
+  align-items: center;
+  margin-top: 5px;
+}
+
+.spacing{
+  height: 20px; /* 间隔高度  */
+}
+
+.avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-right: 5px;
+}
+
+.progress-bar {
+  margin-top: 15px;
+}
+
+.bar {
+  background-color: #f0f0f0; /* 整体为灰色 */
+  border-radius: 5px;
+  overflow: hidden;
+  height: 10px;
+  margin-top: 5px;
+}
+
+.filled {
+  background-color: #4caf50; /* 进度部分为绿色 */
+  height: 100%;
+}
+
+.status {
+  margin-top: 10px;
+}
+
+.apply-button {
+  margin-top: 20px;
+  background-color: rgb(219, 242, 250);
+  color: black;
+  padding: 10px;
+  border-radius: 5px;
+}

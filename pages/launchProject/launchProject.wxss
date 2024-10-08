@@ -1,0 +1,55 @@
+.container {  
+  padding: 20px;  
+}  
+  
+.title {  
+  font-size: 24px;  
+  font-weight: bold;  
+  text-align: center;  
+  margin-bottom: 20px;  
+}  
+  
+.form-row {  
+  display: flex;  
+  margin-bottom: 20px;  
+   
+}  
+  
+.form-label {  
+  flex: 3;  
+  font-size: 16px;  
+  font-weight: bold; 
+  margin-left: 2px; 
+  margin-right: 10px;  
+}  
+  
+.form-input,  
+.form-textarea {  
+  flex: 5;  
+  padding: 2px;  
+  box-sizing: border-box;  
+  border: 1px solid black;  
+  border-radius: 4px;  
+  font-size: 16px;  
+}  
+  
+.form-textarea {  
+  height: 150px;  
+  /* 因为textarea默认是块级元素，我们需要调整它的宽度来适应flex布局 */  
+  width: 100%;  
+}  
+  
+.form-button-row {  
+  display: flex;  
+  justify-content: center;  
+  margin-top: 20px;  
+}  
+  
+button {  
+  padding: 10px 20px;  
+  background-color:cornflowerblue;  
+  color: #fff;  
+  border: none;  
+  border-radius: 4px;  
+  font-size: 16px;  
+}
