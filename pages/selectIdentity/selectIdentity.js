@@ -28,8 +28,10 @@ Page({
   
   // 身份点击事件处理函数  
   onTapIdentity: function(event) {  
+    console.log(event)
     // 获取被点击的身份名称  
-    const identityName = event.currentTarget.dataset.name;  
+    const identityName = event.currentTarget.dataset.name;
+    console.log(identityName)  
   
     // 根据身份名称跳转到不同页面  
     switch (identityName) {  

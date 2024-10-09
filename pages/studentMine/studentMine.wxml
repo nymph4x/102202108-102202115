@@ -1,0 +1,44 @@
+<!--pages/studentMine/studentMine.wxml-->
+<view class="container">  
+  <view class="header">  
+    <image class="avatar" src="photo.png" mode="cover"></image>  
+    <view class="info">  
+      <text class="name">张三</text>  
+      <text class="student-id">102202188</text>  
+      <text class="major">数据科学与大数据技术</text>  
+    </view>  
+  </view>  
+  
+<view class="contact-skills">  
+  <view class="contact bold-large">  
+    <text>联系方式：</text>  
+    <view class="contact-details">  
+      <text>邮箱：</text>  
+      <text>zhangsan@fzu.edu.cn</text>  
+    </view>  
+    <view class="contact-details">  
+      <text>手机：</text>  
+      <text>138-XXXX-XXXX</text>  
+    </view>  
+  </view>  
+  <view class="skills bold-large">  
+    <text>技能：</text>  
+    <view class="skill-list">  
+      <view class="skill-item">  
+        <text>编程语言：Python, R, SQL</text>  
+      </view>  
+      <view class="skill-item">  
+        <text>数据处理工具：Pandas, NumPy, Spark</text>  
+      </view>  
+      <view class="skill-item">  
+        <text>可视化工具：Tableau, Matplotlib, Seaborn</text>  
+      </view>  
+      <view class="skill-item">  
+        <text>机器学习：了解基本算法（回归、分类、聚类）</text>  
+      </view>  
+    </view>  
+  </view>  
+</view>  
+  
+  <button class="project-button" bindtap="navigateToProjects">我的项目</button>  
+</view>

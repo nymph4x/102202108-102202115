@@ -1,10 +1,16 @@
 {
   "pages": [
+    "pages/myProjects/myProjects",
+    "pages/studentMine/studentMine", 
     "pages/selectIdentity/selectIdentity",
+    "pages/projectDetail/projectDetail",
+    "pages/studentHome/studentHome",
+    "pages/launchProject/launchProject",
+    "pages/applyProject/applyProject",
     "pages/login/login",
     "pages/index/index",
     "pages/logs/logs",
-    "pages/studentHome/studentHome",
+    "pages/studentCommunity/studentCommunity",
     "pages/teacherHome/teacherHome",
     "pages/adminHome/adminHome"
   ],
@@ -13,6 +19,28 @@
     "navigationBarTextStyle": "black",
     "navigationBarTitleText": "你好",
     "navigationBarBackgroundColor": "#ffffff"
+  },
+  "tabBar": {
+    "selectedColor": "red",
+    "list":[{
+      "pagePath": "pages/studentHome/studentHome", 
+      "text": "项目",
+      "iconPath": "images/project_n.png",
+      "selectedIconPath": "images/project_s.png" 
+    },
+    {
+      "pagePath": "pages/studentCommunity/studentCommunity", 
+      "text": "社区",
+      "iconPath": "images/community_n.png",
+      "selectedIconPath": "images/community_s.png" 
+    },
+    {
+      "pagePath": "pages/studentMine/studentMine", 
+      "text": "我的",
+      "iconPath": "images/mine_n.png",
+      "selectedIconPath": "images/mine_s.png" 
+    }
+  ]
   },
  
   "style": "v2",

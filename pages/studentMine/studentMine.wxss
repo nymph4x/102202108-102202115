@@ -1,0 +1,60 @@
+/* pages/studentMine/studentMine.wxss */
+.container {  
+  padding: 20px;  
+}  
+  
+.header {  
+  display: flex;  
+  align-items: center;  
+  margin-bottom: 20px;  
+}  
+  
+.avatar {  
+  width: 80px;  
+  height: 80px;  
+  border-radius: 50%;  
+}  
+  
+.info {  
+  margin-left: 20px;  
+}  
+  
+.name, .student-id, .major {  
+  display: block;  
+  margin-bottom: 5px;  
+}  
+  
+.contact-skills {  
+  margin-bottom: 20px;  
+}
+
+.bold-large {   
+  font-size: 16px; /* 根据需要调整字体大小 */  
+  margin-bottom: 10px; /* 技能部分和联系方式部分之间的间距 */  
+}  
+
+.contact-details {  
+  margin-top: 5px; /* 邮箱和手机信息之间的间距 */  
+}  
+  
+.skill-list {  
+  margin-top: 5px; /* 技能项之间的间距（如果需要的话） */  
+}  
+  
+.contact, .skills {  
+  margin-bottom: 10px;  
+}  
+  
+.skill-item {  
+  margin-bottom: 5px;  
+}  
+  
+.project-button {  
+  width: 100%;  
+  padding: 10px;  
+  background-color: rgb(219, 242, 250);  
+  color:black;  
+  border: none;  
+  border-radius: 5px;  
+  text-align: center;  
+}

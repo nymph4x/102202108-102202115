@@ -1,2 +1,21 @@
 <!--pages/studentHome/studentHome.wxml-->
-<text>pages/studentHome/studentHome.wxml</text>
+<view class="container"> 
+  <!-- 搜索框 -->  
+  <view class="search-bar">  
+    <input type="text" placeholder="输入搜索内容..." bindinput="onSearchInput" value="{{searchQuery}}" />  
+    <button bindtap="onSearchTap">点击搜索</button>  
+  </view>  
+
+  <view class="project-list">  
+    <block wx:for="{{projects}}" wx:key="id">  
+      <view class="project-item" bindtap="navigateToProjectDetail" data-id="{{item.id}}">  
+        <view class="project-title">{{item.title}}</view> 
+        <text class="project-status" style="color: {{getProjectBackgroundColor(item.status)}};">{{item.status}}</text>   
+        <view class="project-description">{{item.description}}</view>  
+      </view>  
+    </block>  
+  </view>  
+  <view class="button-container">  
+    <button bindtap="navigateToInitiateProject">发起项目</button>  
+  </view>  
+</view>
