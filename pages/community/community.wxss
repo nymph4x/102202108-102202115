@@ -78,16 +78,17 @@
   
 /* 搜索按钮 */  
 .search-button {  
-  padding: 0 15px;  
-  background-color: #6d8df7;  
-  color: #fff;  
+  padding: 5px 10px;  
+  background-color:#005bb5;
+  color: #ffffff;  
   border: none;  
-  border-radius: 5px;  
-  margin-left: 10px; 
+  border-radius: 0 5px 5px 0; /* 圆角只应用于右侧 */  
+  font-size: 16px;  
+  margin-left: 10px;  
 }
 .button {    
-  background-color: #6d8df7;   
+  background-color: #005bb5;   
   border: none;  
   border-radius: 5px; 
-  color: #fff;
+  color: #ffffff;
 }

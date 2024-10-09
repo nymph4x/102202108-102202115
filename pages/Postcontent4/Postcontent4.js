@@ -1,4 +1,4 @@
-// pages/studentMine/studentMine.js
+// pages/Postcontent3/Postcontent3.js
 Page({
 
   /**
@@ -7,18 +7,7 @@ Page({
   data: {
 
   },
-    
-  // 跳转到我的项目页面  
-  navigateToProjects: function() {  
-    wx.navigateTo({  
-      url: '/pages/myProjects/myProjects' 
-    });  
-  } ,
-  navigateToPosts: function() {  
-    wx.navigateTo({  
-      url: '/pages/myPosts/myPosts' 
-    });  
-  } ,
+
   /**
    * 生命周期函数--监听页面加载
    */

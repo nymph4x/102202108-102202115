@@ -4,54 +4,54 @@
   <form bindsubmit="handleSubmit">  
     <!-- 项目名称 -->  
     <view class="form-row">  
-      <label class="form-label">项目名称</label>  
-      <input class="form-input" type="text" name="projectName" placeholder="请输入项目名称" required />  
+      <label class="form-label">项目名称：</label>  
+      <input class="form-input" type="text" name="projectName"  required />  
     </view>  
       
     <!-- 项目负责人 -->  
     <view class="form-row">  
-      <label class="form-label">项目负责人</label>  
-      <input class="form-input" type="text" name="projectLeader" placeholder="请输入项目负责人姓名" required />  
+      <label class="form-label">项目负责人：</label>  
+      <input class="form-input" type="text" name="projectLeader"  required />  
     </view>  
       
     <!-- 时间 -->  
     <view class="form-row">  
-      <label class="form-label">时间</label>  
-      <input class="form-input" type="date" name="projectTime" placeholder="请选择项目时间" required />  
+      <label class="form-label">时间：</label>  
+      <input class="form-input" type="date" name="projectTime"required />  
     </view>  
       
     <!-- 技能要求 -->  
     <view class="form-row">  
-      <label class="form-label">技能要求</label>  
-      <input class="form-input" type="text" name="skillRequirements" placeholder="请输入技能要求" required />  
+      <label class="form-label">技能要求：</label>  
+      <input class="form-input" type="text" name="skillRequirements" placeholder= required />  
     </view>  
       
     <!-- 专业领域 -->  
     <view class="form-row">  
-      <label class="form-label">专业领域</label>  
-      <input class="form-input" type="text" name="fieldOfStudy" placeholder="请输入专业领域" required />  
+      <label class="form-label">专业领域：</label>  
+      <input class="form-input" type="text" name="fieldOfStudy" placeholder= required />  
     </view>  
       
     <!-- 指导老师 -->  
     <view class="form-row">  
-      <label class="form-label">指导老师</label>  
-      <input class="form-input" type="text" name="instructor" placeholder="请输入指导老师姓名" required />  
+      <label class="form-label">指导老师：</label>  
+      <input class="form-input" type="text" name="instructor" placeholder= required />  
     </view>  
       
     <!-- 目标人数 -->  
     <view class="form-row">  
-      <label class="form-label">目标人数</label>  
-      <input class="form-input" type="number" name="targetMembers" placeholder="请输入目标人数" required />  
+      <label class="form-label">目标人数：</label>  
+      <input class="form-input" type="number" name="targetMembers"  required />  
     </view>  
       
     <!-- 项目简介 -->  
     <view class="form-row">  
-      <label class="form-label">项目简介</label>  
-      <textarea class="form-textarea" name="projectDescription" placeholder="请输入项目简介" required></textarea>  
+      <label class="form-label">项目简介：</label>  
+      <textarea class="form-textarea" name="projectDescription" required></textarea>  
     </view>  
       
     <view class="form-button-row">  
-      <button formType="submit">发起项目</button>  
+      <button formType="submit">发起项目：</button>  
     </view>  
   </form>  
 </view>

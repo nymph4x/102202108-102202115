@@ -1,9 +1,5 @@
 // pages/studentHome/studentHome.js
-Page({
-
-  /**
-   * 页面的初始数据
-   */
+Page({  
   data: {  
     searchQuery: '', // 搜索框的输入内容  
     projects: [], // 项目列表（初始化为空，实际项目中会从服务器获取）  
@@ -15,7 +11,40 @@ Page({
       // 可以添加更多状态与颜色的映射  
     },     
   },  
-
+  onSearchInput: function(e) {  
+    this.setData({  
+      searchInput: e.detail.value  
+    });  
+  },  
+  
+  // 当搜索按钮被点击时触发  
+  onSearchTap: function() {  
+    const searchInput = this.data.searchInput;  
+    if (searchInput) {  
+      // 在这里执行搜索操作，例如调用API  
+      wx.showToast({  
+        title: '搜索中...',  
+        icon: 'loading',  
+        duration: 2000 // 假设搜索操作需要2秒  
+      });  
+  
+      // 模拟搜索操作完成后的回调  
+      setTimeout(() => {  
+        wx.hideToast();  
+        wx.showToast({  
+          title: '搜索完成！',  
+          icon: 'success'  
+        });  
+        // 这里可以添加跳转到搜索结果页面的代码，例如：  
+         wx.navigateTo({ url: `/pages/search-results/search-results?query=${searchInput}` });  
+      }, 2000);  
+    } else {  
+      wx.showToast({  
+        title: '请输入搜索关键词',  
+        icon: 'none'  
+      });  
+    }  
+  },  
   /**
    * 生命周期函数--监听页面加载
    */
@@ -44,16 +73,7 @@ Page({
     });  
   },   
     
-  // 搜索框输入事件处理  
-  onSearchInput: function(event) {  
-    const searchQuery = event.detail.value;  
-    this.setData({  
-      searchQuery: searchQuery,  
-    });  
-      
-    // 调用过滤函数  
-    this.filterProjects(searchQuery);  
-  },  
+
 
   // 设置状态过滤器的方法（可以是一个按钮点击事件或其他触发方式）  
   setStatusFilter: function(status) {  
@@ -130,4 +150,5 @@ Page({
       url: `/pages/launchProject/launchProject`  
     });  
   }  
+  
 });

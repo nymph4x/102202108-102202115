@@ -41,11 +41,15 @@
   padding: 10px;
   margin-bottom: 10px;
   margin-left: 20px;
+  position: relative;
+  right: 30px;
 }
 
 .members-text, .teachers-text {
   color: white;
   font-weight: bold;
+  position: relative;
+  
 }
 
 .members-list, .teacher-info {
@@ -82,8 +86,12 @@
 
 .apply-button {
   margin-top: 20px;
-  background-color: rgb(219, 242, 250);
-  color: black;
+  background-color: #005bb5;
+  color: #ffffff;
   padding: 10px;
   border-radius: 5px;
+}
+.a{
+  position: relative;
+  bottom: 15px;
 }

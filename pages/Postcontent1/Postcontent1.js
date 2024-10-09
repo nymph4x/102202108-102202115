@@ -8,7 +8,7 @@ Page({
   navigateToDetailPage: function() {  
     // 使用 wx.navigateTo 方法实现页面跳转  
     wx.navigateTo({  
-      url: '/pages/Projectdetails/Projectdetails', // 目标页面的路径，请根据实际情况修改  
+      url: '/pages/projectDetail/projectDetail', // 目标页面的路径，请根据实际情况修改  
     });  
   }, 
   /**

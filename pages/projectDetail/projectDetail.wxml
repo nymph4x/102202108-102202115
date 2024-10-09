@@ -31,7 +31,7 @@
       </view>  
       <view class="teacher-info">  
         <image class="avatar" src="{{teacherAvatar}}" mode="aspectFill"></image>  
-        <text>{{teacher}}</text>  
+        <text class="a">{{teacher}}</text>  
       </view>  
     </view>  
   </view>    

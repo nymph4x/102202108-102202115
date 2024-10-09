@@ -1,0 +1,10 @@
+<view class="container">  
+  
+  <image class="post-avatar" src="images/2.jpg"></image>  
+  <text class="title">张三</text>  
+  <text class="content">12月14日 23:36 发布</text>  
+  <text class="content">我是数据科学与大数据专业的学生,</text>  
+  <text class="content">最近想要加入与本人专业相符的项目,或者找一些伙伴共同创建一个项目,</text>  
+  <text class="content">我目前掌握的一些技能有熟练使用C语言，Python编程，对机器学习也有一些了解，希望有缺人手的项目可以联系我!</text>   
+    
+</view>

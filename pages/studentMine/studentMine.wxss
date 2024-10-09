@@ -52,9 +52,20 @@
 .project-button {  
   width: 100%;  
   padding: 10px;  
-  background-color: rgb(219, 242, 250);  
-  color:black;  
+  background-color: #005bb5;  
+  color:white;  
   border: none;  
   border-radius: 5px;  
   text-align: center;  
+}
+.post-button {  
+  width: 100%;  
+  padding: 10px;  
+  background-color: #005bb5;  
+  color:white;  
+  border: none;  
+  border-radius: 5px;  
+  text-align: center;
+  position: relative;
+  top: 20px; 
 }

@@ -1,27 +1,24 @@
-// pages/myInvolvedProjects/myInvolvedProjects.js
+// pages/historyposts/historyposts.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {  
-    projects: [  
-      {  
-        id: 1,
-        name: '机器视觉图像与几何基础实践',  
-        brief: '通过实践学习机器视觉中的图像处理和几何基础，帮助学生掌握相关理论与应用技术，培养解决实际问题的能力。',
-        // 可以添加更多项目属性，如id、图片等  
-      }, 
-      {
-        id: 2,
-        name: '教育数据分析平台',  
-        brief: '建立一个平台，通过分析学生学习数据，帮助教师优化教学策略。',
-        // 可以添加更多项目属性，如id、图片等  
-      } 
+    posts: [  
+      { id: 1, name:'会飞的鱼', title: '寻求编程高手！一起打造学习管理系统', time: '12月13日23:36' },  
+      { id: 2, name:'天成小王子', title: '设计专业学生，寻求跨专业合作机会！', time: '12月13日23:10' }, 
       // 可以添加更多项目数据  
     ] ,
     
     selectedButton:'' 
+  },  
+
+  onLoad: function() {  
+    const app = getApp();  
+    this.setData({  
+      selectedButton: app.globalData.selectedProjectType  
+    });  
   },  
   onButtonClick: function(event) {  
     const buttonType = event.currentTarget.dataset.type;  
@@ -33,34 +30,44 @@ Page({
       // 但如果需要刷新数据，可以在这里调用相关函数  
     } else if (buttonType === 'participated') {  
       wx.navigateTo({  
-        url: '/pages/myProjects/myProjects', // 跳转到页面
+        url: '/pages/myPosts/myPosts', // 跳转到页面
         success: function() {  
           // 可以在这里做一些额外的操作，比如发送数据到页面 
         }  
       });  
     }  
   },
+  
+  navigateToPost: function(e) {  
+    const postId = e.currentTarget.dataset.id;  
+    
+    let url;  
+    if (postId === 1) {  
+      url = `/pages/Postcontent1/Postcontent1`;  
+    } else if (postId === 2) {  
+      url = `/pages/Postcontent2/Postcontent2`;  
+    } else if (postId === 3) {  
+      url = `/pages/Postcontent3/Postcontent3`;  
+    } else {  
+      // 处理未知或无效的 postId  
+      wx.showToast({  
+        title: '无效的帖子ID',  
+        icon: 'none'  
+      });  
+      return;  
+    }  
+    
+    wx.navigateTo({  
+      url: url  
+    });  
+  },
+
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
-    const app = getApp();  
-    // 这里可以检查app.globalData.selectedProjectType，但通常不需要做额外操作，  
-    // 因为返回页面1时，页面1的onLoad会处理状态更新。  
+
   },
-
-  onReturnToPage1: function() {  
-    wx.navigateBack(); // 返回页面1  
-  }  ,
-
-  navigateToProjectDetails: function(event) {  
-    const project = event.currentTarget.dataset.project;  
-    // 这里假设项目详情页面通过项目名称作为参数进行跳转  
-    // 在实际应用中，应该使用唯一标识符（如id）作为参数  
-    wx.navigateTo({  
-      url: `/pages/pactiProjectDetails/pactiProjectDetails?id=${project.id}`  
-    });  
-  } , 
 
   /**
    * 生命周期函数--监听页面初次渲染完成

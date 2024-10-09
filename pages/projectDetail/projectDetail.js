@@ -9,14 +9,14 @@ Page({
     projectImage: 'images/project_image.png',
     projectIntro: '该项目结合机器学习与几何学，提升图像处理的能力。',
     projectMembers: [
-      { name: '成员A', avatar: 'images/student_photo.png' },
-      { name: '成员B', avatar: 'images/student_photo.png' },
-      { name: '成员C', avatar: 'images/student_photo.png' }
+      { name: '成员A', avatar: 'images/1.jpg' },
+      { name: '成员B', avatar: 'images/3.jpg' },
+      { name: '成员C', avatar: 'images/4.jpg' }
     ],
     teacher: '张栋',
-    teacherAvatar: 'images/teacher_photo.png',
+    teacherAvatar: 'images/5.jpg',
     leader: '张三',
-    leaderAvatar: 'images/student_photo.png',
+    leaderAvatar: 'images/2.jpg',
     projectStatus: '招募中'
   },
   

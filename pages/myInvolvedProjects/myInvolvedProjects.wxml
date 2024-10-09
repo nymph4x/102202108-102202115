@@ -2,8 +2,8 @@
 <view class="container"> 
   <view class="title">我的项目</view>  
   <view class="button-group">  
-    <button data-type="initiated" bindtap="onButtonClick" class="{{selectedButton === 'initiated' ? 'button-selected' : ''}}">我发起的项目</button>  
-    <button data-type="participated" bindtap="onButtonClick" class="{{selectedButton === 'participated' ? 'button-selected' : ''}}">我参与的项目</button>  
+    <button data-type="participated" bindtap="onButtonClick" class="{{selectedButton === 'initiated' ? 'button-selected' : ''}}">我发起的项目</button>  
+    <button data-type="initiated" bindtap="onButtonClick" class="{{selectedButton === 'participated' ? 'button-selected' : ''}}">我参与的项目</button>  
   </view> 
   <view class="project-list">  
     <block wx:for="{{projects}}" wx:key="index">  

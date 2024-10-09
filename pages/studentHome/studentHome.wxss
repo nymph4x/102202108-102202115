@@ -3,36 +3,48 @@
   padding: 20px;  
 }  
 
-/* 搜索框样式 */  
-.search-bar {  
-  margin-bottom: 20px;  
+/* 搜索栏容器 */  
+.search-bar-container {  
   display: flex;  
   align-items: center;  
-  background-color: #f5f5f5;  
+  border: 1px solid #ddd;  
   padding: 10px;  
   border-radius: 5px;  
+  background-color: #fff;  
 }  
   
-.search-bar input {  
+/* 搜索图标 */  
+.search-icon {  
+  width: 35px;  
+  height: 35px;  
+  margin-right: 10px;  
+}  
+  
+/* 搜索输入框 */  
+.search-input {  
   flex: 1;  
-  padding: 5px;  
-  font-size: 16px;  
+  padding: 0 10px;  
   border: none;  
-  border-radius: 5px 0 0 5px; /* 圆角只应用于左侧 */  
+  box-sizing: border-box;  
+  font-size: 16px;  
 }  
   
-.search-bar button { 
+/* 搜索按钮 */  
+.search-button {  
   padding: 5px 10px;  
-  background-color:lightsteelblue;
+  background-color:#005bb5;
   color: #ffffff;  
   border: none;  
   border-radius: 0 5px 5px 0; /* 圆角只应用于右侧 */  
   font-size: 16px;  
   margin-left: 10px;  
-}  
-  
+}
+
 .project-list {  
   margin-bottom: 20px;  
+  position: relative;
+  top: 20px;
+  
 }  
   
 .project-item {  
@@ -65,11 +77,8 @@
   text-align: center;  
 }  
   
-button {  
-  padding: 10px 20px;  
-  background-color:rgb(219, 242, 250);  
-  color:black;  
-  border: none;  
-  border-radius: 5px;  
-  font-size: 16px;  
+.button {  
+  
+  background-color:#005bb5;  
+  color: #ffffff;
 }

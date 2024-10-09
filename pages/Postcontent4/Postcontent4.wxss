@@ -1,4 +1,4 @@
-/* pages/Postcontent1/Postcontent1.wxss */
+/* pages/Postcontent/Postcontent.wxss */
 .container {  
   padding: 20rpx;  
   background-color: #f8f8f8; /* 调整为更通用的背景色 */  
@@ -19,22 +19,10 @@
   color: #000000;  
   margin-bottom: 20rpx;  
 }  
+  
 
 .post-avatar {  
   width: 50px;  
   height: 50px;  
   border-radius: 50%;  
-}  
-.link-button {  
-  background-color: #005bb5;  
-  color: white;  
-  padding: 10px 20px;  
-  text-align: center;  
-  text-decoration: none;  
-  display: inline-block;  
-  font-size: 16px;  
-  margin: 4px 2px;  
-  cursor: pointer;  
-  border: none;  
-  border-radius: 4px;  
 }  

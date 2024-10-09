@@ -40,5 +40,6 @@
   </view>  
 </view>  
   
-  <button class="project-button" bindtap="navigateToProjects">我的项目</button>  
+  <button class="project-button" bindtap="navigateToProjects">我的项目</button>
+  <button class="post-button" bindtap="navigateToPosts">我的帖子</button>
 </view>
