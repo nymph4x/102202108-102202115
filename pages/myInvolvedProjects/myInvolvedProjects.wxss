@@ -1,5 +1,4 @@
-/* pages/myProjects/myProjects.wxss */ 
-  
+/* pages/myInvolvedProjects/myInvolvedProjects.wxss */  
 .container {  
   padding: 20px;  
 }  

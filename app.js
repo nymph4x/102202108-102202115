@@ -14,6 +14,7 @@ App({
     })
   },
   globalData: {
-    userInfo: null
+    userInfo: null,
+    selectedProjectType: 'initiated' // 默认选中“我发起的项目” 
   }
 })

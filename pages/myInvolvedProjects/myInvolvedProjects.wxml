@@ -1,4 +1,4 @@
-<!--pages/myProjects/myProjects.wxml-->
+<!--pages/myInvolvedProjects/myInvolvedProjects.wxml-->
 <view class="container"> 
   <view class="title">我的项目</view>  
   <view class="button-group">  
