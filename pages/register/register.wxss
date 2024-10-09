@@ -1,0 +1,56 @@
+/* pages/register/register.wxss */
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #BFEFFF;
+  padding: 20px;
+}
+
+.title {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+input {
+  width: 80%;
+  height: 40px;
+  margin-bottom: 10px;
+  padding: 0 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+.avatar {
+  margin: 20px 0;
+}
+
+.avatar-img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background-color: #f0f0f0;
+}
+
+button {
+  width: 80%;
+  height: 40px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  background-color: #1E90FF;
+  color: white;
+}
+
+.register-btn {
+  background-color: #00BFFF;
+}
+
+/* Styling for the login link */
+.login-text {
+  font-size: 12px;
+  color: #666666;
+  margin-bottom: 20px;
+  text-decoration: underline;
+  cursor: pointer;
+}

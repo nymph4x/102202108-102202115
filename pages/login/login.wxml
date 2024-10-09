@@ -1,2 +1,25 @@
 <!--pages/login/login.wxml-->
-<text>pages/login/login.wxml</text>
+<view class="container">
+  <text class="title">ProjectPartner</text>
+  <text class="subtitle">登录入口</text>
+
+  <view class="input-box">
+    <input placeholder="请输入您的账号" bindinput="getAccount" />
+    <image class="clear-icon" src="/assets/icons/clear.png"></image>
+  </view>
+
+  <view class="input-box">
+    <input placeholder="请输入您的密码" password="true" bindinput="getPassword" />
+    <image class="toggle-icon" src="/assets/icons/eye.png"></image>
+  </view>
+
+  <button class="login-btn" bindtap="login">登录</button>
+
+  <view class="agreement">
+    <checkbox checked></checkbox>
+    <text>我已阅读并同意《用户协议》 《隐私政策》</text>
+  </view>
+
+  <!-- Link to go to the registration page -->
+  <text class="register-link" bindtap="goToRegister">还没有账号？注册</text>
+</view>

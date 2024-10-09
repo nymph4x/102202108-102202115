@@ -1,66 +1,78 @@
 // pages/login/login.js
 Page({
-
-  /**
-   * 页面的初始数据
-   */
   data: {
-    
+    account: '',
+    password: ''
   },
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad(options) {
-
+  // Get user input for account
+  getAccount(e) {
+    this.setData({
+      account: e.detail.value
+    });
   },
 
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady() {
-
+  // Get user input for password
+  getPassword(e) {
+    this.setData({
+      password: e.detail.value
+    });
   },
 
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow() {
+  // Handle login
+  login() {
+    const account = this.data.account;
+    const password = this.data.password;
 
+    // Ensure the user has inputted both account and password
+    if (!account || !password) {
+      wx.showToast({
+        title: '请输入账号和密码',
+        icon: 'error'
+      });
+      return;
+    }
+
+    // Query the database to check if the account and password match
+    wx.cloud.database().collection("users")
+      .where({
+        admin: account,
+        password: password
+      })
+      .get({
+        success: (res) => {
+          if (res.data.length > 0) {
+            // Login success
+            wx.showToast({
+              title: '登录成功',
+              icon: 'success'
+            });
+            // Redirect to the home page or dashboard
+            wx.switchTab({
+              url: '/pages/studentHome/studentHome'  
+            });
+          } else {
+            // Login failure
+            wx.showToast({
+              title: '账号或密码错误',
+              icon: 'error'
+            });
+          }
+        },
+        fail: (err) => {
+          console.error(err);
+          wx.showToast({
+            title: '登录失败',
+            icon: 'error'
+          });
+        }
+      });
   },
 
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide() {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload() {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh() {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom() {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage() {
-
+  // Redirect to the registration page
+  goToRegister() {
+    wx.navigateTo({
+      url: '/pages/register/register'  // Adjust the path if necessary
+    });
   }
-})
+});

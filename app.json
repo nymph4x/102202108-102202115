@@ -1,5 +1,9 @@
 {
   "pages": [
+    "pages/chatting/chatting",
+    "pages/register/register",
+    "pages/login/login",
+    "pages/studentHome/studentHome",
     "pages/initProjectDetails/initProjectDetails",
     "pages/invoProjectDetails/invoProjectDetails",
     "pages/myProjects/myProjects",
@@ -7,10 +11,8 @@
     "pages/studentMine/studentMine", 
     "pages/selectIdentity/selectIdentity",
     "pages/projectDetail/projectDetail",
-    "pages/studentHome/studentHome",
     "pages/launchProject/launchProject",
     "pages/applyProject/applyProject",
-    "pages/login/login",
     "pages/index/index",
     "pages/logs/logs",
     "pages/community/community",
@@ -24,12 +26,13 @@
     "navigationBarBackgroundColor": "#ffffff"
   },
   "tabBar": {
-    "selectedColor": "red",
+    "color": "black",
+    "selectedColor": "green",
     "list":[{
       "pagePath": "pages/studentHome/studentHome", 
       "text": "项目",
-      "iconPath": "images/project_n.png",
-      "selectedIconPath": "images/project_s.png" 
+      "iconPath": "images/home_n.png",
+      "selectedIconPath": "images/home_s.png" 
     },
     {
       "pagePath": "pages/community/community", 
