@@ -126,9 +126,8 @@ Page({
   },  
   navigateToInitiateProject: function() {  
     // 这里可以添加跳转到发起项目页面的逻辑  
-    wx.showToast({  
-      title: '发起项目功能暂未实现',  
-      icon: 'none'  
+    wx.navigateTo({  
+      url: `/pages/launchProject/launchProject`  
     });  
   }  
 });

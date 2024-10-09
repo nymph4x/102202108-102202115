@@ -1,6 +1,9 @@
 {
   "pages": [
+    "pages/initProjectDetails/initProjectDetails",
+    "pages/invoProjectDetails/invoProjectDetails",
     "pages/myProjects/myProjects",
+    "pages/myInvolvedProjects/myInvolvedProjects",
     "pages/studentMine/studentMine", 
     "pages/selectIdentity/selectIdentity",
     "pages/projectDetail/projectDetail",
@@ -10,7 +13,7 @@
     "pages/login/login",
     "pages/index/index",
     "pages/logs/logs",
-    "pages/studentCommunity/studentCommunity",
+    "pages/community/community",
     "pages/teacherHome/teacherHome",
     "pages/adminHome/adminHome"
   ],
@@ -29,7 +32,7 @@
       "selectedIconPath": "images/project_s.png" 
     },
     {
-      "pagePath": "pages/studentCommunity/studentCommunity", 
+      "pagePath": "pages/community/community", 
       "text": "社区",
       "iconPath": "images/community_n.png",
       "selectedIconPath": "images/community_s.png" 

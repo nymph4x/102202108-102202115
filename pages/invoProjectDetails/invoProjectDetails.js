@@ -1,30 +1,25 @@
-// pages/projectDetail/projectDEtail.js
+// pages/invoProjectDetails/invoProjectDetails.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    projectName: '机器学习的图像与几何基础实践',
+    projectName: '城市智能交通分析',
     projectImage: 'images/project_image.png',
-    projectIntro: '该项目结合机器学习与几何学，提升图像处理的能力。',
+    projectIntro: '通过大数据分析优化城市交通流量，提供实时交通信息和建议。',
     projectMembers: [
-      { name: '成员A', avatar: 'images/student_photo.png' },
-      { name: '成员B', avatar: 'images/student_photo.png' },
-      { name: '成员C', avatar: 'images/student_photo.png' }
+      { name: '李四', avatar: 'images/student_photo.png' },
+      { name: '王五', avatar: 'images/student_photo.png' },
+      { name: '赵六', avatar: 'images/student_photo.png' }
     ],
     teacher: '张栋',
     teacherAvatar: 'images/teacher_photo.png',
     leader: '张三',
     leaderAvatar: 'images/student_photo.png',
+    progress: 5, // 示例进度
     projectStatus: '招募中'
   },
-  
-  applyToProject() {  
-    wx.navigateTo({  
-      url: '/pages/applyProject/applyProject', // 假设的申请页面路径  
-    });  
-  },  
   
   updateStatus(event) {
     this.setData({
@@ -32,8 +27,14 @@ Page({
     });
   },
 
-    // 这里可以添加其他逻辑，如更新项目状态等  
-  
+  // 聊天按钮点击事件处理  
+  onChatTap: function() {  
+    // 这里可以跳转到聊天页面，或者打开聊天窗口  
+    // 例如使用 wx.navigateTo 跳转到聊天页面  
+    wx.navigateTo({  
+      url: '/pages/chatting/chatting' // 假设你有一个聊天页面  
+    });  
+  }  ,
 
   /**
    * 生命周期函数--监听页面加载
