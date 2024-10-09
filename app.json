@@ -1,13 +1,16 @@
 {
   "pages": [
+    "pages/studentHome/studentHome",
+    "pages/historyposts/historyposts",
     "pages/community/community",
     "pages/search-results/search-results",
     "pages/Postcontent1/Postcontent1",
     "pages/Projectdetails/Projectdetails",
     "pages/setPost/setPost",
     "pages/Postcontent3/Postcontent3",
+    "pages/Postcontent4/Postcontent4",
     "pages/Postcontent2/Postcontent2",
-    
+    "pages/myPosts/myPosts",
     "pages/initProjectDetails/initProjectDetails",
     "pages/invoProjectDetails/invoProjectDetails",
     "pages/myProjects/myProjects",
@@ -15,13 +18,12 @@
     "pages/studentMine/studentMine", 
     "pages/selectIdentity/selectIdentity",
     "pages/projectDetail/projectDetail",
-    "pages/studentHome/studentHome",
+    
     "pages/launchProject/launchProject",
     "pages/applyProject/applyProject",
     "pages/login/login",
     "pages/index/index",
     "pages/logs/logs",
-    "pages/community/community",
     "pages/teacherHome/teacherHome",
     "pages/adminHome/adminHome"
   ],
