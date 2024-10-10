@@ -1,7 +1,8 @@
 {
   "pages": [
-    "pages/studentHome/studentHome",
     "pages/register/register",
+    "pages/initProjectDetails/initProjectDetails",
+    "pages/studentHome/studentHome",
     "pages/chatting/chatting",
     "pages/message/message",
     "pages/studentMine/studentMine",
@@ -10,11 +11,9 @@
     "pages/profileDetails/profileDetails",
     "pages/search-results/search-results",
     "pages/Postcontent1/Postcontent1",
-    "pages/Projectdetails/Projectdetails",
     "pages/setPost/setPost",
     "pages/Postcontent3/Postcontent3",
     "pages/Postcontent2/Postcontent2",
-    "pages/initProjectDetails/initProjectDetails",
     "pages/invoProjectDetails/invoProjectDetails",
     "pages/myProjects/myProjects",
     "pages/projectDetail/projectDetail",

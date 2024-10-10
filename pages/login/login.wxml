@@ -13,7 +13,7 @@
     <image class="toggle-icon" src="/assets/icons/eye.png"></image>
   </view>
 
-  <button class="login-btn" bindtap="login">登录</button>
+  <button class="button" bindtap="login">登录</button>
 
   <view class="agreement">
     <checkbox checked></checkbox>

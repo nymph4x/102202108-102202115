@@ -56,5 +56,21 @@ Page({
         console.error('获取我参与的项目失败', err);
       }
     });
+  },
+
+  // 跳转到发起项目详情页面
+  goToLaunchedProjectDetail(e) {
+    const projectId = e.currentTarget.dataset.id;  // 获取项目ID
+    wx.navigateTo({
+      url: `/pages/initProjectDetails/initProjectDetails`  // 跳转到发起项目详情页面，传递项目ID
+    });
+  },
+
+  // 跳转到参与项目详情页面
+  goToParticipatedProjectDetail(e) {
+    const projectId = e.currentTarget.dataset.id;  // 获取项目ID
+    wx.navigateTo({
+      url: `/pages/invoProjectDetails/invoProjectDetails`  // 跳转到参与项目详情页面，传递项目ID
+    });
   }
 });

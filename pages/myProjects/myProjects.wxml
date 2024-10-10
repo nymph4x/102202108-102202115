@@ -10,24 +10,20 @@
 
   <!-- 项目列表 -->
   <scroll-view class="project-list">
-    <view hidden="{{currentTab !== 0}}">
+    <block wx:if="{{currentTab === 0}}">
       <!-- 我发起的项目 -->
-      <block wx:for="{{myLaunchedProjects}}" wx:key="id">
-        <view class="project-item">
-          <view class="project-title">{{item.projectName}}</view>
-          <view class="project-description">{{item.intro}}</view>
-        </view>
-      </block>
-    </view>
+      <view wx:for="{{myLaunchedProjects}}" wx:key="id" class="project-item" bindtap="goToLaunchedProjectDetail" data-id="{{item._id}}">
+        <view class="project-title">{{item.projectName}}</view>
+        <view class="project-description">{{item.intro}}</view>
+      </view>
+    </block>
 
-    <view hidden="{{currentTab !== 1}}">
-      <!-- 我参与的项目 -->
-      <block wx:for="{{myParticipatedProjects}}" wx:key="id">
-        <view class="project-item">
-          <text class="project-title">{{item.projectName}}</text>
-          <text class="project-description">{{item.intro}}</text>
-        </view>
-      </block>
-    </view>
+    <!-- 我参与的项目 -->
+    <block wx:if="{{currentTab === 1}}">
+      <view wx:for="{{myParticipatedProjects}}" wx:key="id" class="project-item" bindtap="goToParticipatedProjectDetail" data-id="{{item._id}}">
+        <text class="project-title">{{item.projectName}}</text>
+        <text class="project-description">{{item.intro}}</text>
+      </view>
+    </block>
   </scroll-view>
 </view>
