@@ -8,8 +8,8 @@
 
   <!-- 群聊页面 -->
   <view wx:if="{{selectedTab === 'group'}}" class="tab-content">
-    <view wx:for="{{chatGroups}}" wx:key="id" class="group-item" bindtap="goToChat" data-id="{{item.id}}" data-name="{{item.projectName}}">
-      <text class="group-name">{{item.projectName}}</text>
+    <view wx:for="{{chatGroups}}" wx:key="id" class="group-item" bindtap="goToChat" data-id="{{item.groupId}}" data-name="{{item.groupName}}">
+      <text class="group-name">{{item.groupName}}</text>
     </view>
   </view>
 

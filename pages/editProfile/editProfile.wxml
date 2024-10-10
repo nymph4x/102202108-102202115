@@ -79,5 +79,5 @@
   </scroll-view>
 
   <!-- 保存按钮 -->
-  <button class="save-btn" bindtap="saveProfile">保存</button>
+  <button class="button" bindtap="saveProfile">保存</button>
 </view>

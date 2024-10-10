@@ -1,120 +1,127 @@
 const db = wx.cloud.database();
+const app = getApp();
 
 Page({
   data: {
-    chatId: 1,  // 群聊 ID
-    chatName: '机器视觉图像与几何基础实践',  // 群聊名称
-    inputValue: '', // 输入的消息内容
-    messages: [],  // 消息记录
-    userInfo: {},  // 当前用户信息
+    groupId: '',         // 群组ID
+    groupName: '',       // 群聊名称
+    currentUserOpenId: '', // 当前用户的 openid
+    currentUserAvatar: '', // 当前用户的头像
+    currentUserName: '', // 当前用户的名字
+    messages: [],        // 聊天记录
+    inputMessage: '',    // 输入框中的消息
   },
 
+  // 页面加载时获取群聊信息和用户openID
   onLoad(options) {
-    //const chatId = options.chatId;
-    //const chatName = options.chatName;
-
-    // 设置页面标题
-    wx.setNavigationBarTitle({
-      title: chatName
-    });
-
-    this.setData({
-      chatId: chatId,
-      chatName: chatName
-    });
-
-    // 获取当前用户 openid 和信息
-    this.getUserInfo();
+    const groupId = options.groupId;
+    const groupName = options.groupName;
     
-    // 加载聊天记录
-    this.loadMessages();
+    // 直接从 options 获取传递过来的 groupId 和 groupName
+    this.setData({
+      groupId: groupId,  // 设置群组ID
+      groupName: groupName  // 设置群聊名称
+    });
+
+    this.getUserInfo();  // 获取当前用户信息
   },
 
-  // 获取当前用户的 openid 和信息
+  // 获取当前用户的头像和昵称
   getUserInfo() {
-    const that = this;
-
-    // 调用云函数获取当前用户的 openid
     wx.cloud.callFunction({
       name: 'getUserOpenid',
-      success(res) {
+      success: res => {
         const openid = res.result.openid;
-        // 从 users 数据库中获取用户信息
+
+        // 从 users 数据库获取用户信息
         db.collection('users').where({
           _openid: openid
-        }).get({
-          success(dbRes) {
-            if (dbRes.data.length > 0) {
-              that.setData({
-                userInfo: dbRes.data[0]
-              });
-            }
+        }).get().then(userRes => {
+          if (userRes.data.length > 0) {
+            const userInfo = userRes.data[0];  // 假设每个 openid 只对应一个用户
+            this.setData({
+              currentUserOpenId: openid,
+              currentUserAvatar: userInfo.avatarUrl,  // 用户头像
+              currentUserNickname: userInfo.name  // 用户名字
+            });
+            // 开始监听消息
+            this.listenToMessages();
+          } else {
+            console.error('用户信息不存在');
           }
+        }).catch(err => {
+          console.error('获取用户信息失败', err);
         });
+      },
+      fail: err => {
+        console.error('获取 openid 失败', err);
       }
     });
   },
 
-  // 从 chat-record 数据库加载聊天记录
-  loadMessages() {
+  // 实时监听聊天记录
+  listenToMessages() {
     const that = this;
-
-    // 查询该群聊的所有消息
     db.collection('chat-record').where({
-      chatId: this.data.chatId
-    }).orderBy('timestamp', 'asc').get({
-      success(res) {
-        const messages = res.data.map(message => {
-          // 判断是否是当前用户发的消息
-          return {
-            ...message,
-            isMe: message.userId === that.data.userInfo._openid
-          };
-        });
-
+      groupId: this.data.groupId
+    }).orderBy('timestamp', 'asc').watch({
+      onChange: function(snapshot) {
+        console.log('收到新的聊天消息', snapshot);
         that.setData({
-          messages: messages
+          messages: snapshot.docs
         });
+        that.scrollToBottom();  // 滚动到底部显示最新消息
+      },
+      onError: function(err) {
+        console.error('监听聊天记录失败', err);
       }
     });
   },
 
-  // 处理输入框的输入
-  onInput(e) {
+  // 输入框事件处理
+  onInputChange(e) {
     this.setData({
-      inputValue: e.detail.value
+      inputMessage: e.detail.value
     });
   },
 
   // 发送消息
   sendMessage() {
-    const that = this;
-    const messageContent = this.data.inputValue;
-
-    if (messageContent.trim() === '') {
-      return;  // 空消息不发送
+    if (!this.data.inputMessage.trim()) {
+      return;
     }
 
-    const newMessage = {
-      //chatId: this.data.chatId,
-      userId: this.data.userInfo._openid,
-      avatarUrl: this.data.userInfo.avatarUrl,
-      userName: this.data.userInfo.name,
-      content: messageContent,
-      timestamp: new Date().getTime()
+    // 构造消息内容
+    const message = {
+      groupId: this.data.groupId,
+      senderOpenId: this.data.currentUserOpenId,  // 当前用户的 openid
+      message: this.data.inputMessage,  // 消息内容
+      timestamp: new Date(),  // 时间戳
+      avatarUrl: this.data.currentUserAvatar,  // 发送者头像
+      name: this.data.currentUserName  // 发送者昵称
     };
 
-    // 将消息保存到 chat-record 数据库
+    // 将消息存储到 chat-record 数据库中
     db.collection('chat-record').add({
-      data: newMessage,
-      success() {
-        // 清空输入框
-        that.setData({
-          inputValue: ''
+      data: message,
+      success: res => {
+        console.log('消息发送成功', res);
+        this.setData({
+          inputMessage: ''  // 清空输入框
         });
-        // 重新加载聊天记录
-        that.loadMessages();
+      },
+      fail: err => {
+        console.error('消息发送失败', err);
       }
     });
+  },
+
+  // 滚动到最底部（新消息时调用）
+  scrollToBottom() {
+    wx.createSelectorQuery().select('.chat-box').boundingClientRect(function(rect) {
+      wx.pageScrollTo({
+        scrollTop: rect.bottom
+      });
+    }).exec();
   }
 });

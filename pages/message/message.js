@@ -1,4 +1,6 @@
 // pages/message/message.js
+const db = wx.cloud.database();  // 初始化数据库
+
 Page({
   data: {
     selectedTab: 'group',  // 默认选中“群聊”
@@ -22,26 +24,19 @@ Page({
 
   // 加载群聊数据
   loadChatGroups() {
-    // 模拟从数据库获取群聊数据
-    const chatGroups = [
-      {
-        id: 1,
-        projectName: '机器视觉图像与几何基础实践',
-        members: ['张三', '李四', '王五']
+    const that = this;
+
+    // 从数据库 chat-groups 中获取群聊数据
+    db.collection('chat-groups').get({
+      success: res => {
+        console.log('获取群聊数据成功:', res.data);
+        that.setData({
+          chatGroups: res.data  // 将群聊数据设置到页面
+        });
       },
-      {
-        id: 2,
-        projectName: '城市智能交通分析',
-        members: ['李四', '王五', '赵六']
-      },
-      {
-        id: 3,
-        projectName: '教育数据分析平台',
-        members: ['顾七', '王五', '赵六']
+      fail: err => {
+        console.error('获取群聊数据失败:', err);
       }
-    ];
-    this.setData({
-      chatGroups: chatGroups
     });
   },
 
@@ -63,7 +58,7 @@ Page({
     
     // 使用 wx.navigateTo 跳转到聊天界面，并传递群聊的相关信息
     wx.navigateTo({
-      url: `/pages/chatting/chatting`
+      url: `/pages/chatting/chatting?groupId=${chatId}&groupName=${chatName}`  // 传递群聊ID和名称
     });
   }
 });

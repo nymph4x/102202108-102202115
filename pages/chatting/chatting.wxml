@@ -1,31 +1,38 @@
-<!--pages/chatting/chatting.wxml-->
 <view class="container">
-  <!-- 顶部导航栏，显示群聊名称 -->
-  <view class="chat-title">{{chatName}}</view>
-  <!-- 聊天记录展示 -->
-  <scroll-view class="chat-content" scroll-y="true">
-    <view wx:for="{{messages}}" wx:key="id" class="message-item">
-      <!-- 如果不是当前用户，消息显示在左边 -->
-      <view class="message-left" wx:if="{{!item.isMe}}">
-        <image class="avatar" src="{{item.avatarUrl}}" />
-        <view class="message-bubble left">
-          <text class="message-text">{{item.content}}</text>
-        </view>
-      </view>
+  <!-- 顶部显示群聊名称 -->
+  <view class="chat-header">
+    <view class="chat-title">{{groupName}}</view>
+  </view>
 
-      <!-- 如果是当前用户，消息显示在右边 -->
-      <view class="message-right" wx:if="{{item.isMe}}">
-        <view class="message-bubble right">
-          <text class="message-text">{{item.content}}</text>
+  <!-- 聊天消息显示区域 -->
+  <scroll-view class="chat-box" scroll-y="true" bindscrolltoupper="loadMoreMessages">
+    <block wx:for="{{messages}}" wx:key="id">
+    <!-- 判断消息是否为当前用户发送 -->
+    <view class="message-wrapper" wx:if="{{item.senderOpenId === currentUserOpenId}}">
+        <!-- 当前用户的消息：头像在右边，对话框从头像向左延伸 -->
+        <view class="message-right">
+          <view class="message-content-right">
+            <text class="message-text">{{item.message}}</text>
+          </view>
+          <image class="avatar-right" src="{{item.avatarUrl}}" />
         </view>
-        <image class="avatar" src="{{item.avatarUrl}}" />
       </view>
-    </view>
+      
+      <view class="message-wrapper" wx:else>
+        <!-- 他人的消息：头像在左边，对话框从头像向右延伸 -->
+        <view class="message-left">
+          <image class="avatar-left" src="{{item.avatarUrl}}" />
+          <view class="message-content-left">
+            <text class="message-text">{{item.message}}</text>
+          </view>
+        </view>
+      </view>
+    </block>
   </scroll-view>
 
-  <!-- 底部输入框 -->
-  <view class="input-section">
-    <input type="text" placeholder="输入消息..." bindinput="onInput" value="{{inputValue}}" />
-    <button bindtap="sendMessage">发送</button>
+  <!-- 底部输入框和发送按钮 -->
+  <view class="input-box">
+    <input class="input" placeholder="请输入消息" value="{{inputMessage}}" bindinput="onInputChange" />
+    <button class="send-button" bindtap="sendMessage">发送</button>
   </view>
 </view>

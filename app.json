@@ -1,11 +1,11 @@
 {
   "pages": [
-    "pages/chatting/chatting",
+    "pages/studentHome/studentHome",
     "pages/register/register",
+    "pages/chatting/chatting",
     "pages/message/message",
     "pages/studentMine/studentMine",
     "pages/login/login",
-    "pages/studentHome/studentHome",
     "pages/editProfile/editProfile",
     "pages/profileDetails/profileDetails",
     "pages/search-results/search-results",
@@ -17,16 +17,12 @@
     "pages/initProjectDetails/initProjectDetails",
     "pages/invoProjectDetails/invoProjectDetails",
     "pages/myProjects/myProjects",
-    "pages/myInvolvedProjects/myInvolvedProjects", 
-    "pages/selectIdentity/selectIdentity",
     "pages/projectDetail/projectDetail",
     "pages/launchProject/launchProject",
     "pages/applyProject/applyProject",
     "pages/index/index",
     "pages/logs/logs",
-    "pages/community/community",
-    "pages/teacherHome/teacherHome",
-    "pages/adminHome/adminHome"
+    "pages/community/community"
   ],
   "window": {
     "backgroundTextStyle":"dark",
