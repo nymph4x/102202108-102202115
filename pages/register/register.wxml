@@ -1,6 +1,6 @@
 <!--pages/register/register.wxml-->
 <view class="container">
-  <text class="title">个人资料</text>
+  <text class="title">请填写个人资料</text>
 
   <input placeholder="学号/工号" bindinput="getStudentId"/>
   <input placeholder="姓名" bindinput="getName"/>
