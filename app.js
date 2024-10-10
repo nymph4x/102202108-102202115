@@ -1,6 +1,21 @@
 // app.js
 App({
   onLaunch() {
+
+    //云开发环境初始化
+    wx.cloud.init({
+      env:'projectpartner-9g3x4y5p1f7bacfc'
+    })
+
+    //在app.js里面调用云函数
+    wx.cloud.callFunction({
+        name:'getUserOpenid'
+    }).then(res =>{
+      console.log(res)
+      this.globalData.openid = res.result.openid
+    })
+
+
     // 展示本地存储能力
     const logs = wx.getStorageSync('logs') || []
     logs.unshift(Date.now())
