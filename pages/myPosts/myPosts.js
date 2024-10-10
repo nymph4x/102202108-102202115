@@ -1,4 +1,6 @@
 // pages/myPosts/myPosts.js
+
+// pages/myPosts/myPosts.js
 Page({
   data: {
     user: {

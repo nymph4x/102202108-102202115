@@ -1,16 +1,33 @@
-<!--pages/myProjects/myProjects.wxml-->
-<view class="container"> 
-  <view class="title">我的项目</view>  
-  <view class="button-group">  
-    <button data-type="initiated" bindtap="onButtonClick" class="{{selectedButton === 'initiated' ? 'button-selected' : ''}}">我发起的项目</button>  
-    <button data-type="participated" bindtap="onButtonClick" class="{{selectedButton === 'participated' ? 'button-selected' : ''}}">我参与的项目</button>  
-  </view> 
-  <view class="project-list">  
-    <block wx:for="{{projects}}" wx:key="index">  
-      <view class="project-item" bindtap="navigateToProjectDetails" data-project="{{item}}">  
-        <view class="project-name">{{item.name}}</view>  
-        <view class="project-brief">{{item.brief}}</view>   
-      </view>  
-    </block>  
-  </view>  
+<view class="container">
+  <!-- 标题 -->
+  <text class="title">我的项目</text>
+
+  <!-- Tab 选项 -->
+  <view class="tabs">
+    <button class="{{currentTab === 0 ? 'active-tab' : ''}}" bindtap="switchTab" data-index="0">我发起的项目</button>
+    <button class="{{currentTab === 1 ? 'active-tab' : ''}}" bindtap="switchTab" data-index="1">我参与的项目</button>
+  </view>
+
+  <!-- 项目列表 -->
+  <scroll-view class="project-list">
+    <view hidden="{{currentTab !== 0}}">
+      <!-- 我发起的项目 -->
+      <block wx:for="{{myLaunchedProjects}}" wx:key="id">
+        <view class="project-item">
+          <view class="project-title">{{item.projectName}}</view>
+          <view class="project-description">{{item.intro}}</view>
+        </view>
+      </block>
+    </view>
+
+    <view hidden="{{currentTab !== 1}}">
+      <!-- 我参与的项目 -->
+      <block wx:for="{{myParticipatedProjects}}" wx:key="id">
+        <view class="project-item">
+          <text class="project-title">{{item.projectName}}</text>
+          <text class="project-description">{{item.intro}}</text>
+        </view>
+      </block>
+    </view>
+  </scroll-view>
 </view>

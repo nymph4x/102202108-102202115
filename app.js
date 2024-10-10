@@ -1,35 +1,35 @@
 // app.js
 App({
-  onLaunch() {
-
-    //云开发环境初始化
-    wx.cloud.init({
-      env:'projectpartner-9g3x4y5p1f7bacfc'
-    })
-
-    //在app.js里面调用云函数
-    wx.cloud.callFunction({
-        name:'getUserOpenid'
-    }).then(res =>{
-      console.log(res)
-      this.globalData.openid = res.result.openid
-    })
-
-
-    // 展示本地存储能力
-    const logs = wx.getStorageSync('logs') || []
-    logs.unshift(Date.now())
-    wx.setStorageSync('logs', logs)
-
-    // 登录
-    wx.login({
-      success: res => {
-        // 发送 res.code 到后台换取 openId, sessionKey, unionId
-      }
-    })
-  },
   globalData: {
-    userInfo: null,
-    selectedProjectType: 'initiated' // 默认选中“我发起的项目” 
-  }
-})
+    openid: null,       // 存储用户 openid
+  },
+
+  onLaunch() {
+    const that = this;
+
+    // 初始化云开发环境
+    if (!wx.cloud) {
+      console.error('请使用 2.2.3 或以上的基础库以使用云能力');
+    } else {
+      wx.cloud.init({
+        env: 'projectpartner-9g3x4y5p1f7bacfc',  // 云开发环境 ID
+        traceUser: true
+      });
+    }
+
+    // 调用云函数获取 openid
+    wx.cloud.callFunction({
+      name: 'getUserOpenid',
+      success: res => {
+        console.log('获取用户 openid 成功: ', res.result.openid);
+        that.globalData.openid = res.result.openid;  // 存储到全局变量
+      },
+      fail: err => {
+        console.error('获取 openid 失败: ', err);
+      }
+    });
+
+  },
+
+   
+});

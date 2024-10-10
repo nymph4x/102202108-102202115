@@ -1,77 +1,68 @@
 // pages/studentMine/studentMine.js
+const app = getApp();
+const db = wx.cloud.database();
+
 Page({
-
-  /**
-   * 页面的初始数据
-   */
   data: {
-
-  },
-    
-  // 跳转到我的项目页面  
-  navigateToProjects: function() {  
-    wx.navigateTo({  
-      url: '/pages/myProjects/myProjects' 
-    });  
-  } ,
-  navigateToPosts: function() {  
-    wx.navigateTo({  
-      url: '/pages/myPosts/myPosts' 
-    });  
-  } ,
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad(options) {
-
+    userInfo: {} // 用户信息
   },
 
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady() {
-
+  onLoad() {
+    this.loadUserInfo();
   },
 
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow() {
-
+  loadUserInfo() {
+    const that = this;
+    wx.cloud.callFunction({
+      name: 'getUserOpenid',
+      success(res) {
+        console.log("cloud function getUserOpenid result:",res);
+        const openid = res.result.openid;
+        db.collection('users').where({ _openid: openid }).get({
+          success(dbRes) {
+            console.log("database Response:", dbRes);
+            if (dbRes.data.length > 0) {
+              that.setData({
+                userInfo: dbRes.data[0]
+              });
+              console.log("User Info Set:", that.data.userInfo);
+            }
+          },
+          fail(err) {
+            console.error('Failed to load user info:', err);
+          }
+        });
+      }
+    });
   },
 
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide() {
-
+  // 跳转到我的项目页面
+  goToMyProjects() {
+    wx.navigateTo({
+      url: '/pages/myProjects/myProjects'
+    });
   },
 
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload() {
+  // 跳转到我的帖子页面
+  // 跳转到我的帖子页面
+goToMyPosts() {
+  const username = this.data.userInfo.username; // 假设用户名存储在 userInfo 对象中
+  wx.navigateTo({
+    url: '/pages/myPosts/myPosts'
+  });
+},
 
+
+  // 跳转到详情页
+  viewDetails() {
+    wx.navigateTo({
+      url: '/pages/profileDetails/profileDetails'
+    });
   },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh() {
-
+  // 跳转到编辑页面
+  editProfile() {
+    wx.navigateTo({
+      url: '/pages/editProfile/editProfile'  // 跳转到编辑页面
+    });
   },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom() {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage() {
-
-  }
-})
+});

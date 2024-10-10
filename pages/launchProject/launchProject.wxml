@@ -1,57 +1,54 @@
-<view class="container">  
-  <view class="title">请填写项目详细需求：</view>  
-    
-  <form bindsubmit="handleSubmit">  
-    <!-- 项目名称 -->  
-    <view class="form-row">  
-      <label class="form-label">项目名称：</label>  
-      <input class="form-input" type="text" name="projectName"  required />  
-    </view>  
-      
-    <!-- 项目负责人 -->  
-    <view class="form-row">  
-      <label class="form-label">项目负责人：</label>  
-      <input class="form-input" type="text" name="projectLeader"  required />  
-    </view>  
-      
-    <!-- 时间 -->  
-    <view class="form-row">  
-      <label class="form-label">时间：</label>  
-      <input class="form-input" type="date" name="projectTime"required />  
-    </view>  
-      
-    <!-- 技能要求 -->  
-    <view class="form-row">  
-      <label class="form-label">技能要求：</label>  
-      <input class="form-input" type="text" name="skillRequirements" placeholder= required />  
-    </view>  
-      
-    <!-- 专业领域 -->  
-    <view class="form-row">  
-      <label class="form-label">专业领域：</label>  
-      <input class="form-input" type="text" name="fieldOfStudy" placeholder= required />  
-    </view>  
-      
-    <!-- 指导老师 -->  
-    <view class="form-row">  
-      <label class="form-label">指导老师：</label>  
-      <input class="form-input" type="text" name="instructor" placeholder= required />  
-    </view>  
-      
-    <!-- 目标人数 -->  
-    <view class="form-row">  
-      <label class="form-label">目标人数：</label>  
-      <input class="form-input" type="number" name="targetMembers"  required />  
-    </view>  
-      
-    <!-- 项目简介 -->  
-    <view class="form-row">  
-      <label class="form-label">项目简介：</label>  
-      <textarea class="form-textarea" name="projectDescription" required></textarea>  
-    </view>  
-      
-    <view class="form-button-row">  
-      <button formType="submit">发起项目：</button>  
-    </view>  
-  </form>  
+<view class="container">
+  <text class="title">请填写项目详细需求：</text>
+  
+  <!-- 项目名称 -->
+  <view class="input-section">
+    <text class="label">项目名称</text>
+    <input class="input-field" type="text" placeholder="请输入项目名称" bindinput="onInputProjectName" />
+  </view>
+
+  <!-- 项目负责人 -->
+  <view class="input-section">
+    <text class="label">项目负责人</text>
+    <input class="input-field" type="text" placeholder="请输入项目负责人姓名" bindinput="onInputLeader" />
+  </view>
+
+  <!-- 时间 -->
+  <view class="input-section">
+    <text class="label">时间</text>
+    <input class="input-field" type="date" placeholder="请选择项目时间" bindinput="onInputDate" />
+  </view>
+
+  <!-- 技能要求 -->
+  <view class="input-section">
+    <text class="label">技能要求</text>
+    <input class="input-field" type="text" placeholder="请输入技能要求" bindinput="onInputSkills" />
+  </view>
+
+  <!-- 专业领域 -->
+  <view class="input-section">
+    <text class="label">专业领域</text>
+    <input class="input-field" type="text" placeholder="请输入专业领域" bindinput="onInputField" />
+  </view>
+
+  <!-- 指导老师 -->
+  <view class="input-section">
+    <text class="label">指导老师</text>
+    <input class="input-field" type="text" placeholder="请输入指导老师姓名" bindinput="onInputTeacher" />
+  </view>
+
+  <!-- 目标人数 -->
+  <view class="input-section">
+    <text class="label">目标人数</text>
+    <input class="input-field" type="number" placeholder="请输入目标人数" bindinput="onInputTargetPeople" />
+  </view>
+
+  <!-- 项目简介 -->
+  <view class="input-section">
+    <text class="label">项目简介</text>
+    <input class="textarea-field" type="text" placeholder="请输入项目简介" bindinput="onInputIntro"></input>
+  </view>
+
+  <!-- 发起项目按钮 -->
+  <button class="button" bindtap="launchProject">发起项目</button>
 </view>

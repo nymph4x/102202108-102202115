@@ -1,8 +1,8 @@
 <!--pages/myPosts/myPosts.wxml-->
-<view class="profile-container">
+<view class="profile-container"> 
   <view class="profile-header">
-    <image class="avatar" src="{{user.avatarUrl}}"></image>  
-    <text class="username">{{user.username}}</text>
+    <image class="avatar" src="{{userInfo.avatarUrl}}" mode="aspectFill"></image>  
+    <text class="username">{{userInfo.username}}</text>
   </view>
 
   <view class="post-list">
@@ -10,6 +10,7 @@
       <view class="post-item" bindtap="goToPostDetail" data-id="{{item._id}}">
         <text class="title">{{item.title}}</text>
         <text class="content">{{item.content.substring(0, 50)}}...</text>
+        <text class="time">{{item.createTime}}</text> <!-- 显示时间 -->
       </view>
     </block>
   </view>

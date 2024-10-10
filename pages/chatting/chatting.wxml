@@ -1,28 +1,38 @@
-<!--pages/chatting/chatting.wxml-->
 <view class="container">
-  <!-- Scrollable chat area for message bubbles -->
-  <scroll-view class="chat-area" scroll-y="{{true}}" bindscrolltolower="loadMoreMessages">
+  <!-- 顶部显示群聊名称 -->
+  <view class="chat-header">
+    <view class="chat-title">{{groupName}}</view>
+  </view>
+
+  <!-- 聊天消息显示区域 -->
+  <scroll-view class="chat-box" scroll-y="true" bindscrolltoupper="loadMoreMessages">
     <block wx:for="{{messages}}" wx:key="id">
-      <!-- If the message is sent by the current user -->
-      <view wx:if="{{item.sender == currentUser}}" class="message-right">
-        <view class="message-bubble right">
-          <text>{{item.content}}</text>
+    <!-- 判断消息是否为当前用户发送 -->
+    <view class="message-wrapper" wx:if="{{item.senderOpenId === currentUserOpenId}}">
+        <!-- 当前用户的消息：头像在右边，对话框从头像向左延伸 -->
+        <view class="message-right">
+          <view class="message-content-right">
+            <text class="message-text">{{item.message}}</text>
+          </view>
+          <image class="avatar-right" src="{{item.avatarUrl}}" />
         </view>
       </view>
       
-      <!-- If the message is sent by someone else -->
-      <view wx:else class="message-left">
-        <image class="avatar" src="{{item.avatarUrl}}" mode="aspectFill"/>
-        <view class="message-bubble left">
-          <text>{{item.content}}</text>
+      <view class="message-wrapper" wx:else>
+        <!-- 他人的消息：头像在左边，对话框从头像向右延伸 -->
+        <view class="message-left">
+          <image class="avatar-left" src="{{item.avatarUrl}}" />
+          <view class="message-content-left">
+            <text class="message-text">{{item.message}}</text>
+          </view>
         </view>
       </view>
     </block>
   </scroll-view>
 
-  <!-- Message input and send button -->
-  <view class="input-area">
-    <input placeholder="Type a message" bindinput="onInput" value="{{inputValue}}" />
-    <button bindtap="sendMessage" class="send-btn">Send</button>
+  <!-- 底部输入框和发送按钮 -->
+  <view class="input-box">
+    <input class="input" placeholder="请输入消息" value="{{inputMessage}}" bindinput="onInputChange" />
+    <button class="send-button" bindtap="sendMessage">发送</button>
   </view>
 </view>

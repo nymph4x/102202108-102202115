@@ -1,0 +1,40 @@
+<!--pages/profileDetails/profileDetails.wxml-->
+<view class="container">
+  <text class="title">详细信息</text>
+
+  <!-- 头像 -->
+  <view class="avatar-section">
+    <image class="avatar" src="{{userInfo.avatarUrl}}" mode="aspectFill" />
+  </view>
+
+  <!-- 昵称、姓名、学号等信息 -->
+  <view class="info-section">
+    <text>昵称: {{userInfo.nickName}}</text>
+    <text>姓名: {{userInfo.name}}</text>
+    <text>学号: {{userInfo.studentId}}</text>
+    <text>学校: {{userInfo.school}}</text>
+    <text>专业: {{userInfo.major}}</text>
+  </view>
+
+  <!-- 联系方式 -->
+  <view class="info-section">
+    <text>联系方式：</text>
+    <text>邮箱: {{userInfo.email}}</text>
+    <text>手机: {{userInfo.phone}}</text>
+  </view>
+
+  <!-- 技能信息 -->
+  <view class="info-section">
+    <text>技能：</text>
+    <text>编程语言: {{userInfo.skills.languages}}</text>
+    <text>数据处理工具: {{userInfo.skills.dataTools}}</text>
+    <text>可视化工具: {{userInfo.skills.visualTools}}</text>
+    <text>机器学习算法: {{userInfo.skills.mlTechniques}}</text>
+  </view>
+
+  <!-- 个人简介和项目经历 -->
+  <view class="info-section">
+    <text>个人简介: {{userInfo.introduction}}</text>
+    <text>项目经历: {{userInfo.projects}}</text>
+  </view>
+</view>

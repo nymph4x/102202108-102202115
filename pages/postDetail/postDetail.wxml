@@ -2,9 +2,9 @@
 <text class="text">帖子详情</text>
 <view class="post-detail">
   <view class="post-header">
-    <image class="avatar" src="{{post.avatarUrl}}" bindtap="goToProfile" data-username="{{post.username}}" />
+    <image class="avatar" src="{{author.avatarUrl}}" bindtap="goToProfile" />
     <view class="info">
-      <text class="username">{{post.username}}</text>
+      <text class="username">{{author.username}}</text>
       <text class="time">{{post.createTime}}</text>
     </view>
   </view>

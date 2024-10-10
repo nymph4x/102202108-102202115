@@ -1,7 +1,11 @@
 // pages/postDetail/postDetail.js
 Page({
   data: {
-    post: {}
+    post: {},
+    author: {
+      username: '',
+      avatarUrl: ''
+    }
   },
 
   onLoad(options) {
@@ -15,7 +19,9 @@ Page({
       const post = res.data;
       post.createTime = this.formatTime(post.createTime);
       this.setData({
-        post: post
+        post: post,
+        'author.username': post.username, // 设置发帖人用户名
+        'author.avatarUrl': post.avatarUrl // 设置发帖人头像
       });
     }).catch(err => {
       console.error(err);
@@ -35,8 +41,8 @@ Page({
     wx.navigateBack();
   },
 
-  goToProfile(e) {
-    const username = e.currentTarget.dataset.username;
+  goToProfile() {
+    const username = this.data.author.username;
     wx.navigateTo({
       url: `/pages/myPosts/myPosts?username=${username}`
     });

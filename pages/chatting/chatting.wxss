@@ -1,21 +1,47 @@
-/* pages/chatting/chatting.wxss */
 .container {
   display: flex;
   flex-direction: column;
-  height: 100vh;
-  background-color: #f4f4f4;
+  padding: 0;
+  height: 100vh;  /* 让整个页面充满视窗高度 */
 }
 
-.chat-area {
-  flex-grow: 1;
+.chat-header {
+  position: fixed;  /* 固定在页面顶部 */
+  top: 0;
+  width: 100%;
+  height: 50px;  /* 设定一个合适的高度 */
+  background-color: white;
+  z-index: 1;  /* 确保它始终位于最上层 */
+  border-bottom: 1px solid #ccc;
+  text-align: center;
+  line-height: 50px;  /* 水平居中 */
+  font-size: 18px;
+}
+
+.chat-title {
+  color: black;
+  text-align: center;
+  font-size: 18px;
+}
+
+.chat-box {
+  flex: 1;
+  margin-top: 50px;  /* 让出 chat-header 的空间 */
+  margin-bottom: 70px;  /* 让出 input-box 的空间 */
   padding: 10px;
-  overflow-y: scroll;
+  overflow-y: scroll;  /* 允许垂直滚动 */
+  background-color: #f5f5f5;
 }
 
-.message-left, .message-right {
-  display: flex;
-  align-items: center;
+.message-wrapper {
   margin-bottom: 10px;
+  display: flex;
+  align-items: flex-end;
+}
+
+.message {
+  display: flex;
+  align-items: center;  /* 让头像和对话框居中对齐 */
 }
 
 .message-left {
@@ -26,53 +52,73 @@
   justify-content: flex-end;
 }
 
-.avatar {
+/* 左侧头像 */
+.avatar-left {
   width: 40px;
   height: 40px;
-  border-radius: 20px;
+  border-radius: 50%;
   margin-right: 10px;
 }
 
-.message-bubble {
-  max-width: 60%;
+/* 右侧头像 */
+.avatar-right {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-left: 10px;
+}
+
+/* 左侧对话框 */
+.message-content-left {
+  max-width: 80%;
+  background-color: #fff;
   padding: 10px;
   border-radius: 10px;
-  background-color: #fff;
-  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
-}
-
-.message-bubble.left {
-  background-color: #e5e5e5;
-}
-
-.message-bubble.right {
-  background-color: #1aad19;
-  color: white;
-}
-
-.input-area {
+  border-top-left-radius: 0;
   display: flex;
-  align-items: center;
+  flex-wrap: wrap;
+  word-wrap: break-word;
+}
+
+/* 右侧对话框 */
+.message-content-right {
+  max-width: 80%;
+  background-color: #dcf8c6; 
+  padding: 10px;
+  border-radius: 10px;
+  border-top-right-radius: 0;
+  display: flex;
+  flex-wrap: wrap;
+  word-wrap: break-word;
+}
+
+.message-text {
+  font-size: 16px;
+}
+
+.input-box {
+  position: fixed;  /* 固定在页面底部 */
+  bottom: 0;
+  width: 100%;
+  display: flex;
   padding: 10px;
   background-color: white;
   border-top: 1px solid #ccc;
+  z-index: 1;
 }
 
-input {
-  flex-grow: 1;
-  height: 40px;
-  border: none;
-  border-radius: 5px;
-  padding: 0 10px;
-  background-color: #f5f5f5;
-  margin-right: 10px;
+.input {
+  flex: 1;
+  background-color: azure;
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  padding: 10px;
 }
 
-.send-btn {
-  background-color: #1aad19;
+.send-button {
+  margin-left: 10px;
+  padding: 10px;
+  background-color: #007aff;
   color: white;
-  padding: 0 20px;
-  height: 40px;
-  line-height: 40px;
-  border-radius: 5px;
+  border-radius: 20px;
 }

@@ -1,45 +1,43 @@
 <!--pages/studentMine/studentMine.wxml-->
-<view class="container">  
-  <view class="header">  
-    <image class="avatar" src="photo.png" mode="cover"></image>  
-    <view class="info">  
-      <text class="name">张三</text>  
-      <text class="student-id">102202188</text>  
-      <text class="major">数据科学与大数据技术</text>  
-    </view>  
-  </view>  
+<view class="container">
+  <text class="title">个人中心</text>
+  <!-- 顶部右上角的编辑图标 -->
+  <image class="edit-icon" src="icons/edit.png" bindtap="editProfile" />
+
+
+  <!-- 用户信息展示 -->
+  <view class="profile-card">
+    <view class="profile-header">
+      <!-- 头像 -->
+      <image class="avatar" src="{{userInfo.avatarUrl}}" mode="aspectFill" />
+      
+      <!-- 用户昵称、学号、专业等部分信息 -->
+      <view class="user-info">
+        <text class="user-name">{{userInfo.name}}</text>
+        <text class="user-id">{{userInfo.studentId}}</text>
+        <text class="user-major">{{userInfo.major}}</text>
+      </view>
+    </view>
+
+    <!-- 联系方式和技能展示 -->
+    <view class="info-section">
+      <text>联系方式：</text>
+      <text>邮箱: {{userInfo.email}}</text>
+      <text>手机: {{userInfo.phone}}</text>
+    </view>
+
+    <view class="info-section">
+      <text>技能：</text>
+      <text>编程语言: {{userInfo.skills.languages}}</text>
+      <text>数据处理工具: {{userInfo.skills.dataTools}}</text>
+      <text>可视化工具: {{userInfo.skills.visualTools}}</text>
+    </view>
+
+    <!-- 我的项目和我的帖子按钮 -->
+    <button class="botton" bindtap="goToMyProjects">我的项目</button>
+    <button class="botton" bindtap="goToMyPosts">我的帖子</button>
+  </view>
+    <!-- 左下角的详情图标 -->
+  <image class="details-icon" src="icons/details.png" bindtap="viewDetails" />
   
-<view class="contact-skills">  
-  <view class="contact bold-large">  
-    <text>联系方式：</text>  
-    <view class="contact-details">  
-      <text>邮箱：</text>  
-      <text>zhangsan@fzu.edu.cn</text>  
-    </view>  
-    <view class="contact-details">  
-      <text>手机：</text>  
-      <text>138-XXXX-XXXX</text>  
-    </view>  
-  </view>  
-  <view class="skills bold-large">  
-    <text>技能：</text>  
-    <view class="skill-list">  
-      <view class="skill-item">  
-        <text>编程语言：Python, R, SQL</text>  
-      </view>  
-      <view class="skill-item">  
-        <text>数据处理工具：Pandas, NumPy, Spark</text>  
-      </view>  
-      <view class="skill-item">  
-        <text>可视化工具：Tableau, Matplotlib, Seaborn</text>  
-      </view>  
-      <view class="skill-item">  
-        <text>机器学习：了解基本算法（回归、分类、聚类）</text>  
-      </view>  
-    </view>  
-  </view>  
-</view>  
-  
-  <button class="project-button" bindtap="navigateToProjects">我的项目</button>
-  <button class="post-button" bindtap="navigateToPosts">我的帖子</button>
 </view>

@@ -1,5 +1,5 @@
 // 云函数入口文件
-const cloud = require('wx-server-sdk')
+const cloud = require('wx-server-sdk');
 
 cloud.init({ env: 'projectpartner-9g3x4y5p1f7bacfc' }) // 使用当前云环境
 

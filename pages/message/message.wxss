@@ -1,0 +1,52 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  padding-top: 0;
+  padding-left: 0;
+  padding-right: 0;
+  padding-bottom: 20px;
+}
+
+/* 选项卡部分样式 */
+.tab-header {
+  display: flex;
+  justify-content: space-around;
+  border-bottom: 0;
+  margin-top: 0;
+  margin-bottom: 10px;
+  width: 100%;
+}
+
+.tab-item {
+  flex: 1;
+  text-align: center;
+  padding: 0;
+  font-size: 16px;
+  color: #666;
+  background-color: #fff;
+  margin-right: 0;
+  margin-left: 0;
+  margin-top: 0;
+  margin-bottom: 5px;
+  line-height: 40px;
+}
+
+.active-tab {
+  color: #1aad19; /* 选中状态变为绿色 */
+  border: 1px solid #1aad19; /* 选中的选项有边框 */
+}
+
+/* 群聊和通知的白色背景 */
+.group-item, .notification-item {
+  width: 90%; /* 宽度占据页面的90% */
+  margin: 10px auto;
+  padding: 15px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.group-name , .notification-text{
+  font-size: 16px;
+}
+

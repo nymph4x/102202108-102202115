@@ -1,40 +1,54 @@
 {
   "pages": [
+    "pages/studentMine/studentMine",
+    "pages/myPosts/myPosts",
     "pages/community/community",
     "pages/setPost/setPost",
     
-    "pages/register/register",
     "pages/historyposts/historyposts",
     "pages/postDetail/postDetail",
-    "pages/chatting/chatting",
-    "pages/login/login",
+
     "pages/studentHome/studentHome",
+    "pages/register/register",
+    "pages/chatting/chatting",
+    "pages/message/message",
+   
+
+    "pages/login/login",
+    "pages/editProfile/editProfile",
+    "pages/profileDetails/profileDetails",
     "pages/search-results/search-results",
     "pages/Postcontent1/Postcontent1",
    
     "pages/Postcontent3/Postcontent3",
     "pages/Postcontent4/Postcontent4",
     "pages/Postcontent2/Postcontent2",
-    "pages/myPosts/myPosts",
+    
     "pages/initProjectDetails/initProjectDetails",
     "pages/invoProjectDetails/invoProjectDetails",
     "pages/myProjects/myProjects",
-    "pages/myInvolvedProjects/myInvolvedProjects",
-    "pages/studentMine/studentMine", 
-    "pages/selectIdentity/selectIdentity",
     "pages/projectDetail/projectDetail",
     "pages/launchProject/launchProject",
     "pages/applyProject/applyProject",
     "pages/index/index",
+
     
     "pages/teacherHome/teacherHome",
-    "pages/adminHome/adminHome"
+    "pages/adminHome/adminHome",
+
+    "pages/logs/logs"
+
   ],
   "window": {
     "backgroundTextStyle":"dark",
     "navigationBarTextStyle": "black",
-    "navigationBarTitleText": "你好",
+    "navigationBarTitleText": "ProjectPartner",
     "navigationBarBackgroundColor": "#ffffff"
+  },
+  "permission": {
+    "scope.userInfo": {
+      "desc": "获取您的用户信息用于展示"
+    }
   },
   "tabBar": {
     "color": "black",
@@ -50,6 +64,12 @@
       "text": "社区",
       "iconPath": "images/community_n.png",
       "selectedIconPath": "images/community_s.png" 
+    },
+    {
+      "pagePath": "pages/message/message", 
+      "text": "消息",
+      "iconPath": "images/message_n.png",
+      "selectedIconPath": "images/message_s.png" 
     },
     {
       "pagePath": "pages/studentMine/studentMine", 
