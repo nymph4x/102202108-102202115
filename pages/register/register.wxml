@@ -1,0 +1,24 @@
+<!--pages/register/register.wxml-->
+<view class="container">
+  <text class="title">个人资料</text>
+
+  <input placeholder="学号/工号" bindinput="getStudentId"/>
+  <input placeholder="姓名" bindinput="getName"/>
+  <input placeholder="学校" bindinput="getSchool"/>
+  <input placeholder="专业" bindinput="getMajor"/>
+  <input placeholder="请输入邮箱" bindinput="getZh"/>
+  <input password="true" placeholder="密码" bindinput="getPassword"/>
+  <input password="true" placeholder="确认密码" bindinput="getPassword2"/>
+
+  <view class="avatar">
+    <button bindtap="uploadAvatar">上传头像</button>
+    <image class="avatar-img" src="{{avatarUrl}}" mode="aspectFill"></image>
+  </view>
+
+  <!-- New clickable text for login -->
+  <text class="login-text" bindtap="goToLogin">已有账号？直接登录</text>
+
+  <button class="register-btn" bindtap="register">完成注册</button>
+</view>
+
+​

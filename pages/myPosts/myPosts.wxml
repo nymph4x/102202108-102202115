@@ -1,22 +1,16 @@
 <!--pages/myPosts/myPosts.wxml-->
-<view class="container"> 
-  <view class="title">我的帖子</view>  
-  <view class="button-group">  
-    <button data-type="initiated" bindtap="onButtonClick" class="{{selectedButton === 'initiated' ? 'button-selected' : ''}}">我发布的帖子</button>  
-    <button data-type="participated" bindtap="onButtonClick" class="{{selectedButton === 'participated' ? 'button-selected' : ''}}">浏览历史记录</button>  
-  </view> 
-  <view class="post-list">  
-    <block wx:for="{{posts}}" wx:key="unique">  
-      <view class="post-item" bindtap="navigateTopostDetails" data-id="{{item.id}}">
-        <image class="post-avatar" src="images/{{item.id}}.jpg"></image>
-        <view class="post-name">  
-          <text>{{item.name}}</text> 
-        </view>  
-        <view class="post-content">
-          <text class="post-footer">{{item.time}}</text>
-          <text>{{item.title}}</text>    
-        </view>  
-      </view>  
+<view class="profile-container">
+  <view class="profile-header">
+    <image class="avatar" src="{{user.avatarUrl}}" />
+    <text class="username">{{user.username}}</text>
+  </view>
+
+  <view class="post-list">
+    <block wx:for="{{posts}}" wx:key="index">
+      <view class="post-item" bindtap="goToPostDetail" data-id="{{item._id}}">
+        <text class="title">{{item.title}}</text>
+        <text class="content">{{item.content.substring(0, 50)}}...</text>
+      </view>
     </block>
-  </view>  
+  </view>
 </view>

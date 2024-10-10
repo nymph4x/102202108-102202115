@@ -34,46 +34,51 @@ Page({
         icon: 'none'  
       });  
     }  
-  },  
-  data: { 
-    searchInput: '', // 用于存储搜索框中的文本 
-    posts: [  
-      { id: 1, name:'会飞的鱼', title: '寻求编程高手！一起打造学习管理系统', time: '12月13日23:36' },  
-      { id: 2, name:'天成小王子', title: '设计专业学生，寻求跨专业合作机会！', time: '12月13日23:10' },  
-      { id: 3, name:'沉迷代码', title: '分享我在“智能校园”项目中的经验', time: '12月13日23:00' }  
-    ]  
-  },  
-  onLoad: function(options) {  
-    const postId = options.id;  
   },
-  navigateToPost: function(e) {  
-    const postId = e.currentTarget.dataset.id;  
-    
-    let url;  
-    if (postId === 1) {  
-      url = `/pages/Postcontent1/Postcontent1`;  
-    } else if (postId === 2) {  
-      url = `/pages/Postcontent2/Postcontent2`;  
-    } else if (postId === 3) {  
-      url = `/pages/Postcontent3/Postcontent3`;  
-    } else {  
-      // 处理未知或无效的 postId  
-      wx.showToast({  
-        title: '无效的帖子ID',  
-        icon: 'none'  
-      });  
-      return;  
-    }  
-    
-    wx.navigateTo({  
-      url: url  
-    });  
+  
+  
+  data: {
+    searchInput: '',
+    posts: [],
+    limit: 10,
+    skip: 0,
+  },
+
+  onLoad() {
+    this.loadPosts();
+  },
+
+  loadPosts() {
+    const db = wx.cloud.database();
+    db.collection('posts').skip(this.data.skip).limit(this.data.limit).get().then(res => {
+      this.setData({
+        posts: this.data.posts.concat(res.data),
+        skip: this.data.skip + this.data.limit
+      });
+    }).catch(err => {
+      console.error(err);
+      wx.showToast({
+        title: '加载失败',
+        icon: 'none'
+      });
+    });
+  },
+
+  viewPostDetail(e) {
+    const postId = e.currentTarget.dataset.id;
+    wx.navigateTo({
+      url: `/pages/postDetail/postDetail?id=${postId}`
+    });
+  },
+
+  loadMore() {
+    this.loadPosts();
   },
   navigateToPostPage: function() {  
     // 跳转到发帖页面  
     wx.navigateTo({  
       url: '/pages/setPost/setPost'  
-    });  
+    })
   }  
 });
 

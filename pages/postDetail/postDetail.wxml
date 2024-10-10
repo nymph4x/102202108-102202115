@@ -1,0 +1,22 @@
+<!--pages/postDetail/postDetail.wxml-->
+<text class="text">帖子详情</text>
+<view class="post-detail">
+  <view class="post-header">
+    <image class="avatar" src="{{post.avatarUrl}}" bindtap="goToProfile" data-username="{{post.username}}" />
+    <view class="info">
+      <text class="username">{{post.username}}</text>
+      <text class="time">{{post.createTime}}</text>
+    </view>
+  </view>
+
+  <view class="post-content">
+    <text class="title">{{post.title}}</text>
+    <text class="content">{{post.content}}</text>
+  </view>
+  
+  <view>
+  <button class="button" bindtap="goBack">返回</button>
+  </view>
+  
+</view>
+

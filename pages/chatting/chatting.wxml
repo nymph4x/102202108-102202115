@@ -1,0 +1,28 @@
+<!--pages/chatting/chatting.wxml-->
+<view class="container">
+  <!-- Scrollable chat area for message bubbles -->
+  <scroll-view class="chat-area" scroll-y="{{true}}" bindscrolltolower="loadMoreMessages">
+    <block wx:for="{{messages}}" wx:key="id">
+      <!-- If the message is sent by the current user -->
+      <view wx:if="{{item.sender == currentUser}}" class="message-right">
+        <view class="message-bubble right">
+          <text>{{item.content}}</text>
+        </view>
+      </view>
+      
+      <!-- If the message is sent by someone else -->
+      <view wx:else class="message-left">
+        <image class="avatar" src="{{item.avatarUrl}}" mode="aspectFill"/>
+        <view class="message-bubble left">
+          <text>{{item.content}}</text>
+        </view>
+      </view>
+    </block>
+  </scroll-view>
+
+  <!-- Message input and send button -->
+  <view class="input-area">
+    <input placeholder="Type a message" bindinput="onInput" value="{{inputValue}}" />
+    <button bindtap="sendMessage" class="send-btn">Send</button>
+  </view>
+</view>
