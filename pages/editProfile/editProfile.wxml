@@ -1,0 +1,83 @@
+<view class="container">
+  <text class="title">编辑个人信息</text>
+
+  <!-- 使用 scroll-view 包裹内容 -->
+  <scroll-view class="form-container" scroll-y="true">
+    <view class="avatar-section">
+      <image class="avatar" src="{{newAvatarUrl}}" mode="aspectFill" />
+      <button bindtap="uploadAvatar">更换头像</button>
+    </view>
+
+    <!-- 修改基本信息 -->
+    <view class="input-section">
+      <text>昵称:</text>
+      <input value="{{newNickName}}" bindinput="updateNickName" />
+    </view>
+
+    <view class="input-section">
+      <text>姓名:</text>
+      <input value="{{newName}}" bindinput="updateName" />
+    </view>
+
+    <view class="input-section">
+      <text>学号:</text>
+      <input value="{{newStudentId}}" bindinput="updateStudentId" />
+    </view>
+
+    <view class="input-section">
+      <text>学校:</text>
+      <input value="{{newSchool}}" bindinput="updateSchool" />
+    </view>
+
+    <view class="input-section">
+      <text>专业:</text>
+      <input value="{{newMajor}}" bindinput="updateMajor" />
+    </view>
+
+    <!-- 联系方式 -->
+    <view class="input-section">
+      <text>邮箱:</text>
+      <input value="{{newEmail}}" bindinput="updateEmail" />
+    </view>
+
+    <view class="input-section">
+      <text>手机:</text>
+      <input value="{{newPhone}}" bindinput="updatePhone" />
+    </view>
+
+    <!-- 技能信息 -->
+    <view class="input-section">
+      <text>编程语言:</text>
+      <input value="{{newLanguages}}" bindinput="updateLanguages" />
+    </view>
+
+    <view class="input-section">
+      <text>数据处理工具:</text>
+      <input value="{{newDataTools}}" bindinput="updateDataTools" />
+    </view>
+
+    <view class="input-section">
+      <text>可视化工具:</text>
+      <input value="{{newVisualTools}}" bindinput="updateVisualTools" />
+    </view>
+
+    <view class="input-section">
+      <text>机器学习算法:</text>
+      <input value="{{newMLTechniques}}" bindinput="updateMLTechniques" />
+    </view>
+
+    <!-- 个人简介和项目经历 -->
+    <view class="input-section">
+      <text>个人简介:</text>
+      <textarea value="{{newIntroduction}}" bindinput="updateIntroduction" />
+    </view>
+
+    <view class="input-section">
+      <text>项目经历:</text>
+      <textarea value="{{newProjects}}" bindinput="updateProjects" />
+    </view>
+  </scroll-view>
+
+  <!-- 保存按钮 -->
+  <button class="save-btn" bindtap="saveProfile">保存</button>
+</view>

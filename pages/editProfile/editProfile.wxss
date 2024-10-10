@@ -1,0 +1,70 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+}
+
+.title {
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+
+.scroll-view {
+  flex-grow: 1;
+  width: 100%;
+}
+
+.form-container {
+  width: 90%;
+  max-height: calc(100vh - 120px); /* 限制高度以便滚动，扣除标题和按钮的高度 */
+  overflow-y: scroll;
+}
+
+.avatar-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.avatar {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  margin-bottom: 10px;
+}
+
+.input-section {
+  width: 100%;
+  margin-bottom: 15px;
+  display: flex;
+  flex-direction: column;
+}
+
+input, textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  margin-top: 5px;
+  background-color: #f5f5f5;
+}
+
+textarea {
+  height: 80px;
+}
+
+.save-btn {
+  width: 90%;
+  height: 40px;
+  background-color: #1E90FF;
+  color: white;
+  text-align: center;
+  line-height: 40px;
+  border-radius: 5px;
+  margin-top: 10px;
+  position: sticky;
+  bottom: 10px;
+}

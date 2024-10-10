@@ -1,28 +1,31 @@
 <!--pages/chatting/chatting.wxml-->
 <view class="container">
-  <!-- Scrollable chat area for message bubbles -->
-  <scroll-view class="chat-area" scroll-y="{{true}}" bindscrolltolower="loadMoreMessages">
-    <block wx:for="{{messages}}" wx:key="id">
-      <!-- If the message is sent by the current user -->
-      <view wx:if="{{item.sender == currentUser}}" class="message-right">
-        <view class="message-bubble right">
-          <text>{{item.content}}</text>
-        </view>
-      </view>
-      
-      <!-- If the message is sent by someone else -->
-      <view wx:else class="message-left">
-        <image class="avatar" src="{{item.avatarUrl}}" mode="aspectFill"/>
+  <!-- 顶部导航栏，显示群聊名称 -->
+  <view class="chat-title">{{chatName}}</view>
+  <!-- 聊天记录展示 -->
+  <scroll-view class="chat-content" scroll-y="true">
+    <view wx:for="{{messages}}" wx:key="id" class="message-item">
+      <!-- 如果不是当前用户，消息显示在左边 -->
+      <view class="message-left" wx:if="{{!item.isMe}}">
+        <image class="avatar" src="{{item.avatarUrl}}" />
         <view class="message-bubble left">
-          <text>{{item.content}}</text>
+          <text class="message-text">{{item.content}}</text>
         </view>
       </view>
-    </block>
+
+      <!-- 如果是当前用户，消息显示在右边 -->
+      <view class="message-right" wx:if="{{item.isMe}}">
+        <view class="message-bubble right">
+          <text class="message-text">{{item.content}}</text>
+        </view>
+        <image class="avatar" src="{{item.avatarUrl}}" />
+      </view>
+    </view>
   </scroll-view>
 
-  <!-- Message input and send button -->
-  <view class="input-area">
-    <input placeholder="Type a message" bindinput="onInput" value="{{inputValue}}" />
-    <button bindtap="sendMessage" class="send-btn">Send</button>
+  <!-- 底部输入框 -->
+  <view class="input-section">
+    <input type="text" placeholder="输入消息..." bindinput="onInput" value="{{inputValue}}" />
+    <button bindtap="sendMessage">发送</button>
   </view>
 </view>

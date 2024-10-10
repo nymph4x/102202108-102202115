@@ -1,78 +1,99 @@
-/* pages/chatting/chatting.wxss */
 .container {
   display: flex;
   flex-direction: column;
   height: 100vh;
-  background-color: #f4f4f4;
 }
 
-.chat-area {
+/* 顶部导航栏 */
+.chat-header {
+  background-color: #fff;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.chat-title {
+  background-color: #fff;
+  justify-content: center;
+  font-size: 20px;
+  font-weight: bold;
+  padding: 10px;
+  align-items: center;
+}
+
+.chat-content {
   flex-grow: 1;
   padding: 10px;
+  background-color: #f5f5f5;
   overflow-y: scroll;
 }
 
-.message-left, .message-right {
+.message-item {
   display: flex;
-  align-items: center;
-  margin-bottom: 10px;
+  align-items: flex-start;
+  margin-bottom: 15px;
 }
 
 .message-left {
-  justify-content: flex-start;
+  display: flex;
+  align-items: flex-start;
 }
 
 .message-right {
+  display: flex;
   justify-content: flex-end;
+  align-items: flex-start;
+  flex-direction: row-reverse;
 }
 
 .avatar {
   width: 40px;
   height: 40px;
-  border-radius: 20px;
-  margin-right: 10px;
+  border-radius: 50%;
+  margin: 0 10px;
 }
 
 .message-bubble {
   max-width: 60%;
   padding: 10px;
   border-radius: 10px;
+}
+
+.left .message-bubble {
   background-color: #fff;
-  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+  border: 1px solid #ccc;
 }
 
-.message-bubble.left {
-  background-color: #e5e5e5;
-}
-
-.message-bubble.right {
+.right .message-bubble {
   background-color: #1aad19;
   color: white;
 }
 
-.input-area {
+.message-text {
+  font-size: 16px;
+}
+
+.input-section {
   display: flex;
   align-items: center;
   padding: 10px;
-  background-color: white;
-  border-top: 1px solid #ccc;
+  background-color: #fff;
+  margin-bottom: 10px;
 }
 
 input {
   flex-grow: 1;
-  height: 40px;
-  border: none;
+  padding: 10px;
+  border: 1px solid #ccc;
   border-radius: 5px;
-  padding: 0 10px;
-  background-color: #f5f5f5;
-  margin-right: 10px;
 }
 
-.send-btn {
+button {
+  padding: 10px 15px;
   background-color: #1aad19;
   color: white;
-  padding: 0 20px;
-  height: 40px;
-  line-height: 40px;
+  margin-left: 10px;
   border-radius: 5px;
 }

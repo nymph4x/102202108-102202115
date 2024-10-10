@@ -1,0 +1,22 @@
+<!--pages/message/message.wxml-->
+<view class="container">
+  <!-- 上方选项卡，群聊和通知 -->
+  <view class="tab-header">
+    <view class="tab-item {{selectedTab === 'group' ? 'active-tab' : ''}}" bindtap="switchTab" data-tab="group">群聊</view>
+    <view class="tab-item {{selectedTab === 'notifications' ? 'active-tab' : ''}}" bindtap="switchTab" data-tab="notifications">通知</view>
+  </view>
+
+  <!-- 群聊页面 -->
+  <view wx:if="{{selectedTab === 'group'}}" class="tab-content">
+    <view wx:for="{{chatGroups}}" wx:key="id" class="group-item" bindtap="goToChat" data-id="{{item.id}}" data-name="{{item.projectName}}">
+      <text class="group-name">{{item.projectName}}</text>
+    </view>
+  </view>
+
+  <!-- 通知页面 -->
+  <view wx:if="{{selectedTab === 'notifications'}}" class="tab-content">
+    <view wx:for="{{notifications}}" wx:key="id" class="notification-item">
+      <text class="notification-text">{{item.message}}</text>
+    </view>
+  </view>
+</view>
