@@ -10,7 +10,7 @@
     <view class="post-list">
       <block wx:for="{{posts}}" wx:key="id">
         <view class="post-item" bindtap="viewPostDetail" data-id="{{item._id}}">
-          <image class="avatar" src="{{item.avatarUrl}}" />
+          <image class="avatar" src="{{item.avatarUrl}}"></image>
           <view class="post-info">
             <text class="username">{{item.username}}</text>
             <text class="time">{{item.createTime}}</text>

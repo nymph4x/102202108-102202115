@@ -1,4 +1,4 @@
-<!--pages/postDetail/postDetail.wxml-->
+<!--pages/postDetail/postDetail.wxml {{post.avatarUrl}}-->
 <text class="text">帖子详情</text>
 <view class="post-detail">
   <view class="post-header">

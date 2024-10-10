@@ -1,7 +1,7 @@
 <!--pages/myPosts/myPosts.wxml-->
 <view class="profile-container">
   <view class="profile-header">
-    <image class="avatar" src="{{user.avatarUrl}}" />
+    <image class="avatar" src="{{user.avatarUrl}}"></image>  
     <text class="username">{{user.username}}</text>
   </view>
 

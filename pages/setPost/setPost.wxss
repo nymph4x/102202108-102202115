@@ -4,11 +4,14 @@
   width: 100%;  
   position: relative;
   top: 44px;  
-  background-color: white;
+
+  border-radius: 10px;
 }
 
 .input-group {
+  
   margin-bottom: 40rpx;
+  background-color: rgb(219, 242, 250);
   height: 32%;
   width: 80%;
   border-color: black;
