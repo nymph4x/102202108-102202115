@@ -1,109 +1,60 @@
-// pages/myProjects/myProjects.js
+const db = wx.cloud.database();
+
 Page({
-
-  /**
-   * 页面的初始数据
-   */
-  data: {  
-    projects: [  
-      {  
-        id: 1,
-        name: '城市智能交通分析',  
-        brief: '通过大数据分析优化城市交通流量，提供实时交通信息和建议。',
-        // 可以添加更多项目属性，如id、图片等  
-      },  
-      // 可以添加更多项目数据  
-    ] ,
-    
-    selectedButton:'' 
-  },  
-
-  onLoad: function() {  
-    const app = getApp();  
-    this.setData({  
-      selectedButton: app.globalData.selectedProjectType  
-    });  
-  },  
-  onButtonClick: function(event) {  
-    const buttonType = event.currentTarget.dataset.type;  
-    const app = getApp();  
-    app.globalData.selectedProjectType = buttonType; // 更新全局状态  
-  
-    if (buttonType === 'initiated') {  
-      // 如果已经在页面1，则不需要跳转  
-      // 但如果需要刷新数据，可以在这里调用相关函数  
-    } else if (buttonType === 'participated') {  
-      wx.navigateTo({  
-        url: '/pages/myInvolvedProjects/myInvolvedProjects', // 跳转到页面
-        success: function() {  
-          // 可以在这里做一些额外的操作，比如发送数据到页面 
-        }  
-      });  
-    }  
-  },
-  
-  navigateToProjectDetails: function(event) {  
-    const project = event.currentTarget.dataset.project;  
-    // 这里假设项目详情页面通过项目名称作为参数进行跳转  
-    // 在实际应用中，应该使用唯一标识符（如id）作为参数  
-    wx.navigateTo({  
-      url: `/pages/initProjectDetails/initProjectDetails?id=${project.id}`  
-    });  
-  } , 
-
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad(options) {
-
+  data: {
+    currentTab: 0,  // 当前选中的 Tab，0 为“我发起的项目”，1 为“我参与的项目”
+    myLaunchedProjects: [],  // 我发起的项目
+    myParticipatedProjects: []  // 我参与的项目
   },
 
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady() {
-
+  // 页面加载时默认获取“我发起的项目”
+  onLoad() {
+    this.loadLaunchedProjects();
   },
 
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow() {
+  // 切换 Tab
+  switchTab(e) {
+    const index = e.currentTarget.dataset.index;
+    console.log("按钮index:",index);
+    this.setData({ currentTab: index });
 
+    if (index === 0) {
+      this.loadLaunchedProjects();  // 加载我发起的项目
+    } else {
+      this.loadParticipatedProjects();  // 加载我参与的项目
+    }
   },
 
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide() {
-
+  // 加载我发起的项目
+  loadLaunchedProjects() {
+    const that = this;
+    db.collection('my-launched-projects').get({
+      success(res) {
+        console.log("获取我发起的项目成功：",res.data);
+        that.setData({
+          myLaunchedProjects: res.data
+        });
+      },
+      fail(err) {
+        console.error('获取我发起的项目失败', err);
+      }
+    });
   },
 
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload() {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh() {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom() {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage() {
-
+  // 加载我参与的项目
+  loadParticipatedProjects() {
+    const that = this;
+    db.collection('my-participated-projects').get({
+      success(res) {
+        console.log('获取我参与的项目成功:', res.data);
+        that.setData({
+          myParticipatedProjects: res.data,
+          myLaunchedProjects: []  // 清空发起的项目，避免之前显示错误数据
+        });
+      },
+      fail(err) {
+        console.error('获取我参与的项目失败', err);
+      }
+    });
   }
-})
+});

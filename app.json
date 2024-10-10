@@ -1,9 +1,13 @@
 {
   "pages": [
-    "pages/chatting/chatting",
-    "pages/register/register",
-    "pages/login/login",
     "pages/studentHome/studentHome",
+    "pages/register/register",
+    "pages/chatting/chatting",
+    "pages/message/message",
+    "pages/studentMine/studentMine",
+    "pages/login/login",
+    "pages/editProfile/editProfile",
+    "pages/profileDetails/profileDetails",
     "pages/search-results/search-results",
     "pages/Postcontent1/Postcontent1",
     "pages/Projectdetails/Projectdetails",
@@ -13,22 +17,17 @@
     "pages/initProjectDetails/initProjectDetails",
     "pages/invoProjectDetails/invoProjectDetails",
     "pages/myProjects/myProjects",
-    "pages/myInvolvedProjects/myInvolvedProjects",
-    "pages/studentMine/studentMine", 
-    "pages/selectIdentity/selectIdentity",
     "pages/projectDetail/projectDetail",
     "pages/launchProject/launchProject",
     "pages/applyProject/applyProject",
     "pages/index/index",
     "pages/logs/logs",
-    "pages/community/community",
-    "pages/teacherHome/teacherHome",
-    "pages/adminHome/adminHome"
+    "pages/community/community"
   ],
   "window": {
     "backgroundTextStyle":"dark",
     "navigationBarTextStyle": "black",
-    "navigationBarTitleText": "你好",
+    "navigationBarTitleText": "ProjectPartner",
     "navigationBarBackgroundColor": "#ffffff"
   },
   "tabBar": {
@@ -45,6 +44,12 @@
       "text": "社区",
       "iconPath": "images/community_n.png",
       "selectedIconPath": "images/community_s.png" 
+    },
+    {
+      "pagePath": "pages/message/message", 
+      "text": "消息",
+      "iconPath": "images/message_n.png",
+      "selectedIconPath": "images/message_s.png" 
     },
     {
       "pagePath": "pages/studentMine/studentMine", 

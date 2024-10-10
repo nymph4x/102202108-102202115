@@ -1,60 +1,76 @@
-/* pages/studentMine/studentMine.wxss */
-.container {  
-  padding: 20px;  
-}  
-  
-.header {  
-  display: flex;  
-  align-items: center;  
-  margin-bottom: 20px;  
-}  
-  
-.avatar {  
-  width: 80px;  
-  height: 80px;  
-  border-radius: 50%;  
-}  
-  
-.info {  
-  margin-left: 20px;  
-}  
-  
-.name, .student-id, .major {  
-  display: block;  
-  margin-bottom: 5px;  
-}  
-  
-.contact-skills {  
-  margin-bottom: 20px;  
+.container {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
 }
 
-.bold-large {   
-  font-size: 16px; /* 根据需要调整字体大小 */  
-  margin-bottom: 10px; /* 技能部分和联系方式部分之间的间距 */  
-}  
+.title {
+  font-size: 20px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
 
-.contact-details {  
-  margin-top: 5px; /* 邮箱和手机信息之间的间距 */  
-}  
-  
-.skill-list {  
-  margin-top: 5px; /* 技能项之间的间距（如果需要的话） */  
-}  
-  
-.contact, .skills {  
-  margin-bottom: 10px;  
-}  
-  
-.skill-item {  
-  margin-bottom: 5px;  
-}  
-  
-.project-button {  
-  width: 100%;  
-  padding: 10px;  
-  background-color: rgb(219, 242, 250);  
-  color:black;  
-  border: none;  
-  border-radius: 5px;  
-  text-align: center;  
+.profile-card {
+  width: 90%;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.profile-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.avatar {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  margin-bottom: 10px;
+  margin-right: 20px;
+}
+
+.user-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.user-name, .user-id, .user-major {
+  font-size: 16px;
+  margin: 5px 0;
+}
+
+.info-section {
+  width: 100%;
+  margin: 10px 0;
+}
+
+.info-section text {
+  display: block;
+  margin-bottom: 5px;
+}
+button{
+  margin-top: 20px;
+}
+
+/* 编辑图标 */
+.edit-icon {
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+/* 详情图标 */
+.details-icon {
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
 }
